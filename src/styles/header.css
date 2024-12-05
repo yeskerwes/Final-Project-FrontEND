@@ -1,0 +1,55 @@
+/* Стили для header */
+.header {
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0; 
+    z-index: 10; 
+}
+
+.header-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-top-right{
+    display: flex;
+    gap: 10px;
+}
+
+
+.header-top-right a{
+    text-decoration: none;
+    color: #000;
+}
+
+.header-main{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.header-catalog{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.header-catalog a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+}
+
+.header-catalog a:hover{
+    color: #333;
+}
+
+.header-bottom{
+    display: flex;
+    justify-content: center;
+}
