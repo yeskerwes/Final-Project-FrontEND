@@ -1,4 +1,3 @@
-/* Стили для header */
 .header{
     border-bottom: 1px solid #ccc;
 }
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid #ccc;
 }
 
 .header-top-right{
@@ -20,10 +20,14 @@
     gap: 10px;
 }
 
-
 .header-top-right a{
     text-decoration: none;
     color: #000;
+    font-weight: bold;
+}
+
+.header-top-right a:hover{
+    color: #999;
 }
 
 .header-main{
@@ -32,7 +36,7 @@
     text-align: center;
     align-items: center;
     position: sticky;
-    top: 0; 
+    top: 0;     
     z-index: 10; 
 }
 
@@ -130,7 +134,17 @@
     color: #000;
   }
 
-.header-bottom{
-    display: flex;
-    justify-content: center;
-}
+  .header-bottom {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .header-bottom-text {
+    position: absolute;
+    width: 100%;
+  }
+  
