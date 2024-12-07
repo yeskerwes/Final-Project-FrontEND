@@ -43,7 +43,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Контакты</h3>
+          <h3>Contacts</h3>
           <ul>
             <li>+7 778 774 34 71</li>
             <li>230107029@sdu.edu.kz</li>
