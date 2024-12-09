@@ -7,39 +7,39 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-column">
-          <h3>Каталог</h3>
+          <h3>Catalog</h3>
           <ul>
-            <li>Акции</li>
-            <li>Бренды</li>
+            <li>Promotions</li>
+            <li>Brands</li>
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Компания</h3>
+          <h3>Company</h3>
           <ul>
-            <li>О компании</li>
-            <li>Наша команда</li>
-            <li>Контакты</li>
-            <li>Сотрудничество</li>
-            <li>Вакансии</li>
+            <li>About Us</li>
+            <li>Our Team</li>
+            <li>Contacts</li>
+            <li>Partnership</li>
+            <li>Careers</li>
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Розничный магазин</h3>
+          <h3>Retail Store</h3>
           <ul>
-            <li>Оплата Kaspi QR</li>
-            <li>Оферта</li>
-            <li>Контакты</li>
+            <li>Payment via Kaspi QR</li>
+            <li>Offer</li>
+            <li>Contacts</li>
           </ul>
         </div>
         <div className="footer-column">
-          <h3>Помощь покупателю</h3>
+          <h3>Customer Help</h3>
           <ul>
-            <li>Частые вопросы по заказам</li>
-            <li>Доставка и оплата</li>
-            <li>Обратная связь</li>
-            <li>Обмен / Возврат / Гарантия</li>
-            <li>Товары</li>
-            <li>Скидки и программа лояльности</li>
+            <li>Frequently Asked Questions</li>
+            <li>Delivery and Payment</li>
+            <li>Feedback</li>
+            <li>Exchange / Return / Warranty</li>
+            <li>Products</li>
+            <li>Discounts and Loyalty Program</li>
           </ul>
         </div>
         <div className="footer-column">
@@ -48,20 +48,20 @@ const Footer = () => {
             <li>+7 778 774 34 71</li>
             <li>230107029@sdu.edu.kz</li>
           </ul>
-          <div className="social-icons">
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
-              <FaInstagram />
-            </a>
-            <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="social-icon telegram">
-              <FaTelegram />
-            </a>
-            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon tiktok">
-              <FaTiktok />
-            </a>
-          </div>
         </div>
       </div>
       <div className="footer-bottom">
+        <div className="social-icons">
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+            <FaInstagram />
+          </a>
+          <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="social-icon telegram">
+            <FaTelegram />
+          </a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className="social-icon tiktok">
+            <FaTiktok />
+          </a>
+        </div>
         <p>2024 © Kicks Avenue</p>
       </div>
     </footer>
