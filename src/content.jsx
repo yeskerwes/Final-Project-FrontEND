@@ -1,12 +1,18 @@
 import React from 'react';
 import './styles/content.css'; 
-import background from './images/testPhoto.png';
+import background from './images/background.mp4';
 
 const Content = () => {
     return (
-        <>
-        <img src={background} alt="" />
-        </>
+        <div className="video-container">
+            <video 
+                src={background} 
+                autoPlay 
+                muted 
+                loop 
+                playsInline
+                />
+        </div>
     );
 };
 

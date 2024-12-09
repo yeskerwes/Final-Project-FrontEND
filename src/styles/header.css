@@ -2,7 +2,7 @@
     border-bottom: 1px solid #ccc;
 }
 
-.container {
+.header-container {
     max-width: 1700px;
     margin: 0 auto;
     padding: 10px 20px;
@@ -128,23 +128,23 @@
     color: #999;
     cursor: pointer;
     transition: color 0.3s ease;
-  }
-  
-  .icon:hover {
-    color: #000;
-  }
+}
 
-  .header-bottom {
+.icon:hover {
+    color: #000;
+}
+
+.header-bottom {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
     height: 50px;
     overflow: hidden;
     position: relative;
-  }
-  
-  .header-bottom-text {
+}
+
+.header-bottom-text {
     position: absolute;
     width: 100%;
-  }
-  
+    color: #b649ff;
+}

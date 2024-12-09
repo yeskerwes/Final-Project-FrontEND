@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <>
       <header className="header">
-        <div className="container">
+        <div className="header-container">
           <div className="header-top">
             <div className="header-top-name">
               Logoo
