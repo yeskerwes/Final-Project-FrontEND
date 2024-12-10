@@ -20,16 +20,16 @@
 }
 
 .recommended-shoes::-webkit-scrollbar {
-    height: 8px; /* Высота скроллбара */
+    height: 8px; 
 }
 
 .recommended-shoes::-webkit-scrollbar-thumb {
-    background-color: #ccc; /* Цвет ползунка */
+    background-color: #ccc; 
     border-radius: 10px;
 }
 
 .recommended-shoes-card {
-    min-width: 200px; /* Минимальная ширина карточки */
+    min-width: 200px; 
     height: 700px;
     background-color: #fff;
     border-radius: 10px;
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0; /* Предотвращает сжатие карточек */
+    flex-shrink: 0; 
     overflow: hidden;
 }
 
