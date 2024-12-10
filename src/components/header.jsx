@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './styles/header.css'; 
+import '../styles/header.css'; 
 import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from 'react-icons/fa';
-import logo from './images/nike-logo.png';
+import logo from '../images/nike-logo.png';
+import RegistrationForm from './registrationForm';
 
 const Header = () => {
   const texts = [
@@ -35,13 +36,7 @@ const Header = () => {
               Logoo
             </div>
             <div className="header-top-right">
-              <a href="#">Contact Us</a>
-              |
-              <a href="#">Help</a>
-              |
-              <a href="#">Sign In</a>
-              |
-              <a href="#">Sign Up</a>
+            <RegistrationForm />
             </div>
           </div>
 

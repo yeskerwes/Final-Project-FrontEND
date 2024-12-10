@@ -1,7 +1,7 @@
 import React from 'react';
-import './styles/seasonCollections.css';
-import springCard from './images/spring-collection.png';
-import autumnCard from './images/autumn-collection.png';
+import '../styles/seasonCollections.css';
+import springCard from '../images/spring-collection.png';
+import autumnCard from '../images/autumn-collection.png';
 
 const SeasonCollections = () => {
     return (

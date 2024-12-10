@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/content.css'; 
-import background from './images/background.mp4';
+import '../styles/content.css'; 
+import background from '../images/background.mp4';
 
 const Content = () => {
     return (

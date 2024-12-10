@@ -1,6 +1,6 @@
 import React from 'react';
-import './styles/recommendedShoes.css';
-import image1 from './images/recommended-sneaker-1.png';
+import '../styles/recommendedShoes.css';
+import image1 from '../images/recommended-sneaker-1.png';
 
 const RecommendedShoes = () => {
     return (
