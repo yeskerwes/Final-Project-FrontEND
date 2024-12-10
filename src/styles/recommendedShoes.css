@@ -1,0 +1,49 @@
+.recommended-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.recommended-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.recommended-shoes {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px;
+    gap: 20px;
+    scrollbar-width: none;
+}
+
+.recommended-shoes::-webkit-scrollbar {
+    height: 8px; /* Высота скроллбара */
+}
+
+.recommended-shoes::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Цвет ползунка */
+    border-radius: 10px;
+}
+
+.recommended-shoes-card {
+    min-width: 200px; /* Минимальная ширина карточки */
+    height: 700px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Предотвращает сжатие карточек */
+    overflow: hidden;
+}
+
+.recommended-shoes-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
