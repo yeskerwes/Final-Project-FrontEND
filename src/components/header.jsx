@@ -33,7 +33,7 @@ const Header = () => {
         <div className="header-container">
           <div className="header-top">
             <div className="header-top-name">
-              Logoo
+              kz
             </div>
             <div className="header-top-right">
             <RegistrationForm />
@@ -48,6 +48,7 @@ const Header = () => {
               <a href="#">Men</a>
               <a href="#">Women</a>
               <a href="#">Kids</a>
+              <a href="#">Shop</a>
               <a href="#">Sales</a>
             </div>
             <div className="header-main-right">

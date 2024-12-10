@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import Content from './components/content';
 import SeasonCollections from './components/seasonCollections';
 import AboutUs from './components/aboutUs';
+import ContactUsButton from './components/contactUsButton';
 import RecommendedShoes from './components/recommendedShoes';
 import AnchorUp from './components/anchorUp';
 
@@ -18,6 +19,7 @@ function App() {
       <RecommendedShoes />
       <Footer />
       <AnchorUp />
+      <ContactUsButton />
     </div>
   );
 }

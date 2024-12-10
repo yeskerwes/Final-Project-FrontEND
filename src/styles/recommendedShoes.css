@@ -1,4 +1,6 @@
 .recommended-container {
+    max-width: 1700px;
+    margin: 0 auto;
     padding: 20px;
     background-color: #f9f9f9;
 }
@@ -6,7 +8,7 @@
 .recommended-container h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #000;
 }
 
 .recommended-shoes {
@@ -29,9 +31,9 @@
 
 .recommended-shoes-card {
     min-width: 200px; 
-    height: 700px;
+    height: 500px;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 1px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
@@ -44,5 +46,5 @@
     max-width: 100%;
     max-height: 100%;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 1px;
 }
