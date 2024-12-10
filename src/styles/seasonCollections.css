@@ -1,0 +1,47 @@
+.season-container {
+    max-width: 1500px;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.season-card {
+    max-width: 400px;
+    position: relative; 
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.season-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.season-card img {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.season-button {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #999; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.season-button:hover {
+    background-color: #333; 
+}

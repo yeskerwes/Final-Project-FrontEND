@@ -24,6 +24,7 @@
 
 .footer-column ul li {
   color: inherit; 
+  cursor: pointer;
 }
 
 .footer-column h3 {

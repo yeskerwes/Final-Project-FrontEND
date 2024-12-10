@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './styles/header.css'; 
 import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from 'react-icons/fa';
+import logo from './images/kicks-logo.svg';
 
 const Header = () => {
   const texts = [
     "Soon . . .",
     "In Our Store",
     "New Year's Discounts",
-    "Hurry p To Order"
+    "Hurry Up To Order"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,14 +47,13 @@ const Header = () => {
 
           <div className="header-main">
             <div className="header-logo">
-              <h1>Kicks Avenue</h1>
+              <img src={logo} alt="" />
             </div>
             <div className="header-catalog">
-              <a href="#">Samrat</a>
-              <a href="#">Ayazhan</a>
-              <a href="#">Ruslan</a>
-              <a href="#">Bakdaulet</a>
-              <a href="#">Abylay</a>
+              <a href="#">Men</a>
+              <a href="#">Women</a>
+              <a href="#">Kids</a>
+              <a href="#">Sales</a>
             </div>
             <div className="header-main-right">
               <div className="header-search">
