@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/recommendedShoes.css';
 import image1 from '../images/recommended-sneaker-1.png';
+import image2 from '../images/recommended-sneaker-2.png';
 
 const RecommendedShoes = () => {
     return (
@@ -11,7 +12,7 @@ const RecommendedShoes = () => {
                     <img src={image1} alt="Sneaker 1" />
                 </div>
                 <div className="recommended-shoes-card">
-                    <img src={image1} alt="Sneaker 2" />
+                    <img src={image2} alt="Sneaker 2" />
                 </div>
                 <div className="recommended-shoes-card">
                     <img src={image1} alt="Sneaker 3" />
