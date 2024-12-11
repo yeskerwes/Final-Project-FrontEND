@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importing necessary components
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import './styles/App.css';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -14,6 +14,7 @@ import ShopPage from './components/shopPage';
 import KidsPage from './components/kidsPage';
 import MenPage from './components/menPage';
 import WomenPage from './components/womenPage';
+import FaqPage from './components/faqPage';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/kids" element={<KidsPage />} />
           <Route path="/men" element={<MenPage />} />  
           <Route path="/women" element={<WomenPage />} /> 
+          <Route path="/faq" element={<FaqPage />} />
         </Routes>
         
         <Footer />
