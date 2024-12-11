@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/aboutUs.css';
 import aboutUsPicture from '../images/aboutUs-picture.png';
+import { BiColor, BiColorFill } from 'react-icons/bi';
 
 const AboutUs = () => {
     return (
@@ -12,7 +13,7 @@ const AboutUs = () => {
                 <div className="aboutUs-content">
                     <h1>About Us</h1>
                     <p>
-                        Welcome to Nike, your ultimate destination for premium footwear 
+                        Welcome to <span style={{ color: 'blue' }}>Nike</span>, your ultimate destination for premium footwear 
                         and streetwear. Founded with a passion for sneakers and fashion, 
                         we aim to provide a curated selection of the latest and most iconic styles, 
                         blending comfort and innovation for every step you take.
