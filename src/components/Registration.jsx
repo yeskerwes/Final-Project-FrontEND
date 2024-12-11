@@ -8,9 +8,9 @@ function Registration() {
         <div className="reg-container">
           <h2>Sign Up</h2>
           <div className="adresses">
-          <Link to="/">Main</Link>
+          <Link to="/" className='address'>Main</Link>
           <p>—</p>
-          <Link to="/">Sign In</Link>
+          <Link to="/sign-in" className='address'>Sign In</Link>
           <p>—</p>
           <p>Sign Up</p>
           </div>
