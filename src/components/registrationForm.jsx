@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/registrationForm.css';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as EyeOpen } from '../images/eye_open.svg';
 import { ReactComponent as EyeClosed } from '../images/eye_close.svg';
 import { ReactComponent as Profile } from '../images/icon-profile.svg';
@@ -11,6 +12,7 @@ function RegistrationForm() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({ email: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const openModal = () => {
     setIsLoading(true); 
@@ -48,6 +50,11 @@ function RegistrationForm() {
     if (!hasError) {
       console.log('Form submitted:', formData);
     }
+  };
+
+  const handleSignUp = () => {
+    closeModal();
+    navigate('/registration'); 
   };
 
   return (
@@ -117,7 +124,7 @@ function RegistrationForm() {
                 </div>
                 <div className="submit-btns">
                   <button type="submit" className="submit-sign">Sign In</button>
-                  <button type="submit" className="submit-registration">Sign Up</button>
+                  <button type="button" className="submit-registration" onClick={handleSignUp}>Sign Up</button>
                 </div>
               </form>
             </div>
