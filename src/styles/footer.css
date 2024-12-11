@@ -8,7 +8,7 @@
   max-width: 1500px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
@@ -22,8 +22,24 @@
 }
 
 .footer-column ul li {
-  color: inherit; 
+  color: inherit;
   cursor: pointer;
+  position: relative; 
+  padding: 5px 0; 
+}
+
+.footer-column ul li::before {
+  content: '•'; 
+  position: absolute;
+  left: -20px; 
+  top: 40%; 
+  transform: translateY(-50%);
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+.footer-column ul li:hover::before {
+  opacity: 1; 
 }
 
 .footer-column h3 {
@@ -117,4 +133,3 @@
   font-size: 14px;
   margin: 0;
 }
-  
