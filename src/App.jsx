@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Импортируем необходимые компоненты
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importing necessary components
 import './styles/App.css';
 import Header from './components/header';
 import Footer from './components/footer';
@@ -22,15 +22,19 @@ function App() {
         <Header />
         
         <Routes>
-          <Route path="/" element={<Content />} />
+          <Route path="/" element={
+            <>
+              <Content />
+              <AboutUs />
+              <SeasonCollections />
+              <RecommendedShoes />
+            </>
+          } />
           <Route path="/sales" element={<SalesPage />} /> 
           <Route path="/shop" element={<ShopPage />} /> 
           <Route path="/kids" element={<KidsPage />} />
           <Route path="/men" element={<MenPage />} />  
           <Route path="/women" element={<WomenPage />} /> 
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/season-collections" element={<SeasonCollections />} />
-          <Route path="/recommended-shoes" element={<RecommendedShoes />} />
         </Routes>
         
         <Footer />
