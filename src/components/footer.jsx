@@ -62,7 +62,7 @@ const Footer = () => {
             <FaTiktok />
           </a>
         </div>
-        <p>2024 © Kicks Avenue</p>
+        <p>2024 © Nike</p>
       </div>
     </footer>
   );
