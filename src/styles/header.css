@@ -40,6 +40,7 @@
     border-bottom: 1px solid #ccc;
     top: 0;     
     z-index: 10; 
+    padding: 10px 0; 
 }
 
 .header-catalog{
@@ -55,7 +56,7 @@
     padding: 5px 0;
     font-size: 16px;
     transition: color 0.3s ease;
-    font-weight: bold;
+    font-weight: boldg;
 }
 
 .header-catalog a:hover{
@@ -149,5 +150,5 @@
 .header-bottom-text {
     position: absolute;
     width: 100%;
-    color: #b649ff;
+    color: #000;
 }

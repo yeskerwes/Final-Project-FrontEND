@@ -1,0 +1,190 @@
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.sign-in-btn {
+  font-size: 13px;
+  color: black;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  color: black;
+  background-color: #fff;
+}
+
+.icon-profile {
+  width: 25px;
+  height: 25px;
+  fill: #666;
+}
+
+.sign-in-btn:hover {
+  color: #000;
+}
+
+.sign-in-btn:hover .icon-profile {
+  fill: black; 
+}
+
+.blur {
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.blur-background {
+  filter: blur(5px); 
+  pointer-events: none; 
+  position: relative;
+  z-index: 1; 
+}
+
+.modal-content {
+  background-color: white;
+  padding: 35px 60px;
+  border-radius: 3px;
+  width: 31%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+}
+
+.close-button svg {
+  fill: #b8b8b8;
+}
+
+.close-button svg:hover {
+  fill: black;
+}
+
+.modal-form label {
+  display: block;
+  margin-bottom: 30px;
+  text-align: start;
+  font-size: 13.5px;
+  color: hsl(0, 0%, 56%);
+}
+
+.modal-content h2 {
+  text-align: start;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+
+.modal-form input {
+  width: 90%;
+  height: 30px;
+  padding: 8px 13px 7px;
+  margin-top: 5px;
+  border: 1px solid hsla(0, 0%, 84%, 0.195);
+  border-radius: 2px;
+  background-color: hsla(0, 0%, 84%, 0.195);
+}
+
+.modal-form input:focus {
+  background-color: white;
+  border: 1px solid hsla(0, 0%, 84%, 0.195);
+  outline: none;
+}
+
+.modal-form input.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.7rem;
+  margin-top: 5px;
+}
+
+
+.modal-form button {
+  margin-top: 15px;
+  padding: 15px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.submit-btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-sign {
+  background-color: #000;
+  border: none;
+  color: white;
+}
+
+.submit-registration {
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+}
+
+.modal-form span {
+  color: red;
+  margin-left: 3px;
+}
+
+.must-have {
+  font-size: 13px;
+  color: hsl(0, 0%, 56%);
+  text-align: start;
+  margin-bottom: 25px;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 35px;
+  cursor: pointer;
+  color: #666;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+}
+
+.toggle-password:hover {
+  color: #000;
+}
+
+.loading-overlay {
+  background-color: #fff;
+}
+
