@@ -1,20 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; 
-import '../styles/header.css';
-import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from 'react-icons/fa';
-import logo from '../images/nike-logo.png';
-import RegistrationForm from './registrationForm';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../styles/header.css";
+import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from "react-icons/fa";
+import logo from "../images/nike-logo.png";
+import RegistrationForm from "./registrationForm";
+import Modal from "./Modal"; // A reusable modal component
 
 const Header = () => {
-  const texts = [
-    "Soon . . .",
-    "In Our Store",
-    "New Year's Discounts",
-    "Hurry Up To Order"
-  ];
-
+  const texts = ["Soon . . .", "In Our Store", "New Year's Discounts", "Hurry Up To Order"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [modalContent, setModalContent] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +23,14 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, [texts.length]);
+
+  const handleIconClick = (content) => {
+    setModalContent(content);
+  };
+
+  const closeModal = () => {
+    setModalContent(null);
+  };
 
   return (
     <header className="header">
@@ -57,9 +61,21 @@ const Header = () => {
               <input type="text" placeholder="Search" className="search-input" />
             </div>
             <div className="header-icons">
-              <FaShoppingCart className="icon" title="Cart" />
-              <FaStar className="icon" title="Favorites" />
-              <FaBell className="icon" title="Notifications" />
+              <FaShoppingCart
+                className="icon"
+                title="Cart"
+                onClick={() => handleIconClick("Cart content goes here")}
+              />
+              <FaStar
+                className="icon"
+                title="Favorites"
+                onClick={() => handleIconClick("Favorites content goes here")}
+              />
+              <FaBell
+                className="icon"
+                title="Notifications"
+                onClick={() => handleIconClick("Notifications content goes here")}
+              />
             </div>
           </div>
         </div>
@@ -77,6 +93,8 @@ const Header = () => {
           </div>
         </div>
       </div>
+
+      {modalContent && <Modal content={modalContent} onClose={closeModal} />}
     </header>
   );
 };
