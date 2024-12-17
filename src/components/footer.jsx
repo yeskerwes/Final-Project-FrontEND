@@ -19,9 +19,9 @@ const Footer = () => {
           <h3>Customer Service</h3>
           <ul>
             <Link to="/faq">FAQ</Link>
-            <li>Delivery and Payment</li>
-            <li>Feedback</li>
-            <li>Exchange / Return / Warranty</li>
+            <Link to="/faq">Delivery and Payment</Link>
+            <Link to="/faq">Feedback</Link>
+            <Link to="/faq">Exchange / Return / Warranty</Link>
           </ul>
         </div>
         <div className="footer-column">

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/faqPage.css"; 
+import "../styles/faqPage.css";
 
 const FaqPage = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -8,12 +8,12 @@ const FaqPage = () => {
     {
       question: "How to place an order?",
       answer: `1. Select the products and add them to the cart. 
-2. Go to the "Cart" section and click "Proceed to checkout."
-3. Enter your personal details. 
-4. Choose a delivery method and provide the address. 
-5. Select a payment method and click "Pay online." 
-6. Complete the payment, and your order will be processed. 
-7. If you have any questions about placing an order, contact our support team in the online chat.`,
+      2. Go to the "Cart" section and click "Proceed to checkout."
+      3. Enter your personal details. 
+      4. Choose a delivery method and provide the address. 
+      5. Select a payment method and click "Pay online." 
+      6. Complete the payment, and your order will be processed. 
+      7. If you have any questions about placing an order, contact our support team in the online chat.`,
     },
     {
       question: "What is the delivery time within Kazakhstan?",
@@ -30,6 +30,31 @@ const FaqPage = () => {
     {
       question: "What should I do if the product is defective or damaged?",
       answer: "Contact our support team for a replacement.",
+    },
+    {
+      question: "What payment methods are available?",
+      answer: "We accept online payments, credit cards, and bank transfers.",
+    },
+    {
+      question: "Can I change or cancel my order?",
+      answer: "You can change or cancel your order before it is shipped.",
+    },
+    {
+      question: "What is your exchange/return/warranty policy?",
+      answer: `1. Products can be exchanged or returned within 14 days of receipt. 
+      2. Items must be in original packaging and unused condition. 
+      3. Warranty claims require proof of purchase.`,
+    },
+    {
+      question: "Do you ship internationally?",
+      answer: "Currently, we only ship within Kazakhstan.",
+    },
+    {
+      question: "How do I contact customer support?",
+      answer: `You can contact our support team via: 
+      1. Open your eyes. 
+      2. Email us at 230107029@sdu.edu.kz. 
+      3. Call our hotline at +7 (778) 774-3471.`,
     },
   ];
 

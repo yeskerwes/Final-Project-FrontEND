@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/header.css";
 import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from "react-icons/fa";
 import logo from "../images/nike-logo.png";
 import RegistrationForm from "./registrationForm";
-import Modal from "./Modal"; // A reusable modal component
+import Modal from "./Modal";
 
 const Header = () => {
   const texts = ["Soon . . .", "In Our Store", "New Year's Discounts", "Hurry Up To Order"];
@@ -44,16 +44,51 @@ const Header = () => {
 
         <div className="header-main">
           <div className="header-logo">
-            <Link to="/">
+            <NavLink to="/">
               <img src={logo} alt="Logo" width={90} height={30} />
-            </Link>
+            </NavLink>
           </div>
           <div className="header-catalog">
-            <Link to="/men">Men</Link>
-            <Link to="/women">Women</Link>
-            <Link to="/kids">Kids</Link>
-            <Link to="/shop">Shop</Link>
-            <Link to="/sales">Sales</Link>
+            <NavLink
+              to="/men"
+              className={({ isActive }) =>
+                isActive ? "active" : undefined
+              }
+            >
+              Men
+            </NavLink>
+            <NavLink
+              to="/women"
+              className={({ isActive }) =>
+                isActive ? "active" : undefined
+              }
+            >
+              Women
+            </NavLink>
+            <NavLink
+              to="/kids"
+              className={({ isActive }) =>
+                isActive ? "active" : undefined
+              }
+            >
+              Kids
+            </NavLink>
+            <NavLink
+              to="/shop"
+              className={({ isActive }) =>
+                isActive ? "active" : undefined
+              }
+            >
+              Shop
+            </NavLink>
+            <NavLink
+              to="/sales"
+              className={({ isActive }) =>
+                isActive ? "active" : undefined
+              }
+            >
+              Sales
+            </NavLink>
           </div>
           <div className="header-main-right">
             <div className="header-search">
