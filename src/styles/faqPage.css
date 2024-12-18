@@ -15,11 +15,19 @@
   }
   
   .faq-item {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
+    border: 1px solid #ccc;
+    padding: 20px;
     cursor: pointer;
+    align-items: center;
+    transition: box-shadow 0.3s ease; 
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
+    outline: 1px solid #fff; 
+    border-color: #fff;
   }
-  
+
   .faq-question {
     display: flex;
     justify-content: space-between;
@@ -27,9 +35,7 @@
     font-weight: 500;
   }
   
-  .faq-question:hover {
-    color: #999;
-  }
+
   
   .faq-toggle {
     font-size: 18px;
