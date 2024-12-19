@@ -56,7 +56,7 @@
     padding: 5px 0;
     font-size: 16px;
     transition: color 0.3s ease;
-    font-weight: boldg;
+    font-weight: 600;
 }
 
 .header-catalog a:hover{
@@ -139,7 +139,7 @@
 
 .header-bottom {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     height: 50px;
     overflow: hidden;
@@ -150,5 +150,5 @@
 .header-bottom-text {
     position: absolute;
     width: 100%;
-    color: #000;
+    color: #25d366;
 }

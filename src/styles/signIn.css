@@ -1,0 +1,38 @@
+.submit-btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.submit-sign {
+    background-color: #000;
+    border: none;
+    color: white;
+}
+
+.submit-registration {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+
+.must-have {
+  font-size: 13px;
+  color: hsl(0, 0%, 56%);
+  text-align: start;
+  margin-bottom: 25px;
+}
+
+.must-have span {
+    color: red;
+    margin-right: 3px;
+}
+
+.submit-btns button {
+    margin-top: 15px;
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+  

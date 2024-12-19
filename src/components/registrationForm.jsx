@@ -84,7 +84,7 @@ function RegistrationForm() {
               <h2>Personal Account</h2>
               <form className="modal-form" onSubmit={handleSubmit}>
                 <label>
-                  Email <span>*</span>
+                  Login <span>*</span>
                   <input
                     type="text"
                     name="email"
