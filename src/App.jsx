@@ -15,6 +15,7 @@ import KidsPage from './components/kidsPage';
 import MenPage from './components/menPage';
 import WomenPage from './components/womenPage';
 import FaqPage from './components/faqPage';
+import AboutUsPage from './components/aboutUsPage';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path="/men" element={<MenPage />} />  
           <Route path="/women" element={<WomenPage />} /> 
           <Route path="/faq" element={<FaqPage />} />
+          <Route path="/about" element={<AboutUsPage />} /> 
         </Routes>
         
         <Footer />
