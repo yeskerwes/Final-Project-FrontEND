@@ -9,13 +9,14 @@ import AboutUs from './components/aboutUs';
 import ContactUsButton from './components/contactUsButton';
 import RecommendedShoes from './components/recommendedShoes';
 import AnchorUp from './components/anchorUp';
-import Registration from './components/Registration';
 import SalesPage from './components/salesPage'; 
 import ShopPage from './components/shopPage';
 import KidsPage from './components/kidsPage';
 import MenPage from './components/menPage';
 import WomenPage from './components/womenPage';
+import FaqPage from './components/faqPage';
 import SignIn from './components/signIn';
+import Registration from './components/Registration';
 
 function App() {
   return (
@@ -36,7 +37,8 @@ function App() {
           <Route path="/shop" element={<ShopPage />} /> 
           <Route path="/kids" element={<KidsPage />} />
           <Route path="/men" element={<MenPage />} />  
-          <Route path="/women" element={<WomenPage />} />
+          <Route path="/women" element={<WomenPage />} /> 
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/sign-in" element={<SignIn />} /> 
         </Routes>
