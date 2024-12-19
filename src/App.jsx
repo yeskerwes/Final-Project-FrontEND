@@ -16,6 +16,8 @@ import MenPage from './components/menPage';
 import WomenPage from './components/womenPage';
 import FaqPage from './components/faqPage';
 import AboutUsPage from './components/aboutUsPage';
+import SignIn from './components/signIn';
+import Registration from './components/Registration';
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
           <Route path="/women" element={<WomenPage />} /> 
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/about" element={<AboutUsPage />} /> 
+          <Route path="/registration" element={<Registration />} />
+          <Route path="/sign-in" element={<SignIn />} /> 
         </Routes>
         
         <Footer />
