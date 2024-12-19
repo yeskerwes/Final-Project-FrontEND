@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/aboutUs.css';
 import aboutUsPicture from '../images/aboutUs-picture.png';
-import { BiColor, BiColorFill } from 'react-icons/bi';
 
 const AboutUs = () => {
     return (
