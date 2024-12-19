@@ -278,7 +278,7 @@ function Registration() {
 
         <ConsentToggle />
 
-        <button type="submit" className="submit-btn">Register</button>
+        <button type="submit" className="submit-button">Sign Up</button>
       </form>
     </div>
   );
