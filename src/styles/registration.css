@@ -52,8 +52,8 @@
 
 .form-input,
 .input-error {
-  width: 90%;
-  height: 30px;
+  width: 95%;
+  height: 50px;
   padding: 8px 13px 7px;
   margin-top: 5px;
   border: 1px solid hsla(0, 0%, 84%, 0.195);
