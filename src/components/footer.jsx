@@ -10,18 +10,18 @@ const Footer = () => {
         <div className="footer-column">
           <h3>Company</h3>
           <ul>
-            <li>About Us</li>
-            <li>Our Team</li>
-            <li>Contacts</li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/about">Our Team</Link></li>
+            <li><Link>Contacts</Link></li>
           </ul>
         </div>
         <div className="footer-column">
           <h3>Customer Service</h3>
           <ul>
-            <Link to="/faq">FAQ</Link>
-            <Link to="/faq">Delivery and Payment</Link>
-            <Link to="/faq">Feedback</Link>
-            <Link to="/faq">Exchange / Return / Warranty</Link>
+            <li><Link to="/faq">FAQ</Link></li>
+            <li><Link to="/faq">Delivery and Payment</Link></li>
+            <li><Link to="/faq">Feedback</Link></li>
+            <li><Link to="/faq">Exchange / Return / Warranty</Link></li>
           </ul>
         </div>
         <div className="footer-column">
