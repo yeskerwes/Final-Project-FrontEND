@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/myCabinet.css';
+import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Profile } from '../images/icon-profile.svg';
 import { ReactComponent as TriangleDown } from '../images/arrow-down-triangle.svg';
 import { ReactComponent as Logout } from '../images/logout.svg';
 
+
 function MyCabinet() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -15,9 +18,14 @@ function MyCabinet() {
     setIsOpen(false);
   };
 
+  const handleClick = () => {
+    navigate('/profile'); // Перенаправление на страницу профиля
+  };
+
   return (
     <div className="profile-container">
         <div className="profile-trigger"
+            onClick={handleClick}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}>
             <Profile className="icon-myProfile" /> My Profile
