@@ -1,10 +1,8 @@
 .shop-page {
   color: #fff;
   background-color: #000;
-  font-family: 'Arial', sans-serif;
 }
 
-/* Video Section */
 .shop-video-section, .shop-image-section {
   position: relative;
   width: 100%;
@@ -46,7 +44,6 @@
   font-style: italic;
 }
 
-/* History Section */
 .shop-history-section {
   padding: 50px 20px;
   background-color: #111;
@@ -68,7 +65,6 @@
   color: #ddd;
 }
 
-/* Product Showcase Section */
 .shop-product-showcase {
   padding: 50px 20px;
   background-color: #222;
@@ -143,7 +139,6 @@
   transform: scale(1.05);
 }
 
-/* Lifestyle Section */
 .shop-lifestyle-section {
   padding: 50px 20px;
   background-color: #111;
@@ -163,7 +158,6 @@
   text-align: justify;
 }
 
-/* CTA Section */
 .shop-cta {
   background-color: #111;
   padding: 50px 20px;

@@ -45,3 +45,10 @@
 .season-button:hover {
     background-color: #333; 
 }
+
+
+@media (max-width: 1050px){
+    .season-container{
+        display: none;
+    }
+}

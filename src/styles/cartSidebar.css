@@ -139,3 +139,11 @@
   .cart-total{
     margin-bottom: 30px;
   }
+
+
+
+  @media (max-width: 900px) {
+    .cart-sidebar{
+      width: 200px;
+    }
+  }
