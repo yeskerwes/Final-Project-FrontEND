@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FaStar, FaShoppingCart } from 'react-icons/fa'; 
-import "../styles/genderPage.css"; 
+import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import "../styles/genderPage.css";
 
-const MenPage = () => {
+const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
   const [sneakers, setSneakers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [sortOption, setSortOption] = useState("price-asc");
 
   useEffect(() => {
     const fetchSneakers = async () => {
       try {
-        const response = await fetch(
-          "http://localhost:8081/api/sneakers?gender=men"
-        );
+        const response = await fetch("http://localhost:8081/api/sneakers?gender=men");
         if (!response.ok) {
           throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
         }
@@ -31,23 +28,8 @@ const MenPage = () => {
     fetchSneakers();
   }, []);
 
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
-
-    const sortedSneakers = [...sneakers].sort((a, b) => {
-      if (e.target.value === "price-asc") {
-        return a.currentPrice - b.currentPrice;
-      } else if (e.target.value === "price-desc") {
-        return b.currentPrice - a.currentPrice;
-      } else if (e.target.value === "title-asc") {
-        return a.title.localeCompare(b.title);
-      } else if (e.target.value === "title-desc") {
-        return b.title.localeCompare(a.title);
-      }
-      return 0;
-    });
-    setSneakers(sortedSneakers);
-  };
+  const isFavorite = (id) =>
+    Array.isArray(favoriteItems) && favoriteItems.some((item) => item.id === id);
 
   return (
     <div className="gender-page">
@@ -67,29 +49,10 @@ const MenPage = () => {
           <li>Price</li>
         </ul>
       </div>
-
       <div className="products">
-        <div className="sort-dropdown">
-          <label htmlFor="sort">Sort:</label>
-          <select
-            id="sort"
-            className="sort-select"
-            value={sortOption}
-            onChange={handleSortChange}
-          >
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="title-asc">Title: A to Z</option>
-            <option value="title-desc">Title: Z to A</option>
-          </select>
-        </div>
-
         <div className="product-grid">
           {isLoading && <p>Loading sneakers...</p>}
           {hasError && <p>Error loading sneakers. Please try again later.</p>}
-          {!isLoading && !hasError && sneakers.length === 0 && (
-            <p>No sneakers available.</p>
-          )}
           {!isLoading &&
             !hasError &&
             sneakers.map((sneaker) => (
@@ -104,12 +67,14 @@ const MenPage = () => {
                 <h3>{sneaker.title}</h3>
                 <p>{sneaker.category}</p>
                 <p>${sneaker.currentPrice.toFixed(2)}</p>
-                
                 <div className="product-actions">
-                  <button className="favorite-button">
-                    <FaStar />
+                  <button
+                    className={`favorite-button ${isFavorite(sneaker.id) ? "active" : ""}`}
+                    onClick={() => toggleFavorite(sneaker)}
+                  >
+                    <FaHeart />
                   </button>
-                  <button className="cart-button">
+                  <button className="cart-button" onClick={() => addToCart(sneaker)}>
                     <FaShoppingCart />
                   </button>
                 </div>
