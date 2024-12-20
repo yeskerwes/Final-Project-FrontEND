@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { FaStar, FaShoppingCart } from 'react-icons/fa'; 
 import "../styles/genderPage.css"; 
 
 const MenPage = () => {
@@ -103,6 +104,15 @@ const MenPage = () => {
                 <h3>{sneaker.title}</h3>
                 <p>{sneaker.category}</p>
                 <p>${sneaker.currentPrice.toFixed(2)}</p>
+                
+                <div className="product-actions">
+                  <button className="favorite-button">
+                    <FaStar />
+                  </button>
+                  <button className="cart-button">
+                    <FaShoppingCart />
+                  </button>
+                </div>
               </div>
             ))}
         </div>

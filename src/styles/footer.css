@@ -144,3 +144,17 @@
   font-size: 14px;
   margin: 0;
 }
+
+@media (max-width: 1500px){
+  .social-icons::before, .social-icons::after{
+    background: none;
+  }
+}
+
+@media (max-width: 700px){
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
+}
