@@ -1,0 +1,90 @@
+.profile-container {
+    position: fixed;
+    right: 20px;
+    top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1000;
+  }
+
+.profile-trigger {
+    font-size: 13px;
+    color: black;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: black;
+    background-color: #fff;
+    
+}
+
+.icon-myProfile {
+    width: 25px;
+    height: 25px;
+    fill: #666;
+}
+
+.icon-triangleDown {
+    width: 5px;
+    height: 5px;
+    margin-left: 5px;
+}
+
+.icon-logout {
+    width: 13px;
+    height: 13px;
+    margin-right: 10px;
+}
+
+.logout {
+    align-items: center;
+}
+
+.profile-trigger:hover {
+    color: #000;
+  }
+  
+.profile-trigger:hover .icon-myProfile {
+    fill: black; 
+}
+  
+.blur {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+}
+
+  
+  .profile-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 200px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    z-index: 1000;
+  }
+  
+  .profile-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profile-panel ul li {
+    padding: 15px 15px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: left;
+    border-bottom: 1px solid hsla(0, 0%, 87%, 0.204);
+  }
+  
+  .profile-panel ul li:hover {
+    background-color: hsla(210, 16%, 93%, 0.527);
+  }
+  

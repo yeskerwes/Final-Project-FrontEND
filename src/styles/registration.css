@@ -123,6 +123,19 @@
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  width: 40%;
+}
+
+.get-code-btn {
+  padding: 15px 70px;
+  font-size: 15px;
+  background-color: hsl(0, 2%, 8%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 40%;
+  margin-bottom: 20px;
 }
 
 .submit-button:hover {

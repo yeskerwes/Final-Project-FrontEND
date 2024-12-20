@@ -2,49 +2,58 @@
     max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.recommended-container h1 {
     text-align: center;
-    margin-bottom: 20px;
-    color: #000;
+    background-color: #f9f9f9;
 }
 
 .recommended-shoes {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px;
+    justify-content: center;
     gap: 20px;
-    scrollbar-width: none;
-}
-
-.recommended-shoes::-webkit-scrollbar {
-    height: 8px; 
-}
-
-.recommended-shoes::-webkit-scrollbar-thumb {
-    background-color: #ccc; 
-    border-radius: 10px;
+    flex-wrap: wrap;
 }
 
 .recommended-shoes-card {
-    min-width: 200px; 
-    height: 500px;
+    width: 300px;
     background-color: #fff;
-    border-radius: 1px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0; 
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.recommended-shoes-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .recommended-shoes-card img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    border-radius: 1px;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.shoe-info {
+    padding: 15px;
+    text-align: left;
+}
+
+.shoe-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.shoe-subtitle {
+    font-size: 14px;
+    color: #757575;
+    margin-bottom: 10px;
+}
+
+.shoe-price {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
 }

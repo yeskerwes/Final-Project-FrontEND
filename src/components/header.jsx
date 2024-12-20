@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/header.css";
-import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { FaSearch } from "react-icons/fa";
 import logo from "../images/nike-logo.png";
 import RegistrationForm from "./registrationForm";
-import Modal from "./Modal";
+import MyCabinet from "./myCabinet";
 
 const Header = () => {
   const texts = ["Soon . . .", "In Our Store", "New Year's Discounts", "Hurry Up To Order"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [modalContent, setModalContent] = useState(null);
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,12 +25,8 @@ const Header = () => {
     return () => clearInterval(interval);
   }, [texts.length]);
 
-  const handleIconClick = (content) => {
-    setModalContent(content);
-  };
-
-  const closeModal = () => {
-    setModalContent(null);
+  const toggleBurgerMenu = () => {
+    setIsBurgerOpen(!isBurgerOpen);
   };
 
   return (
@@ -38,7 +35,8 @@ const Header = () => {
         <div className="header-top">
           <div className="header-top-name">kz</div>
           <div className="header-top-right">
-            <RegistrationForm />
+           {/* <RegistrationForm />  */}
+            <MyCabinet />
           </div>
         </div>
 
@@ -48,7 +46,7 @@ const Header = () => {
               <img src={logo} alt="Logo" width={90} height={30} />
             </NavLink>
           </div>
-          <div className="header-catalog">
+          <div className={`header-catalog ${isBurgerOpen ? "open" : ""}`}>
             <NavLink
               to="/men"
               className={({ isActive }) =>
@@ -90,27 +88,15 @@ const Header = () => {
               Sales
             </NavLink>
           </div>
+
           <div className="header-main-right">
             <div className="header-search">
               <FaSearch className="search-icon" />
               <input type="text" placeholder="Search" className="search-input" />
             </div>
-            <div className="header-icons">
-              <FaShoppingCart
-                className="icon"
-                title="Cart"
-                onClick={() => handleIconClick("Cart content goes here")}
-              />
-              <FaStar
-                className="icon"
-                title="Favorites"
-                onClick={() => handleIconClick("Favorites content goes here")}
-              />
-              <FaBell
-                className="icon"
-                title="Notifications"
-                onClick={() => handleIconClick("Notifications content goes here")}
-              />
+
+            <div className="burger-menu">
+              <GiHamburgerMenu className="burger-icon" onClick={toggleBurgerMenu} />
             </div>
           </div>
         </div>
@@ -129,7 +115,6 @@ const Header = () => {
         </div>
       </div>
 
-      {modalContent && <Modal content={modalContent} onClose={closeModal} />}
     </header>
   );
 };
