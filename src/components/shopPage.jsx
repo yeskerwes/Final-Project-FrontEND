@@ -1,6 +1,7 @@
 import React from 'react';
 import startVideo from '../images/shop-video.mp4';
 import startPicture from '../images/shop-img.png';
+import jordanShoes from '../images/jordan-shoes.png'; // Example image for product showcase
 import '../styles/shopPage.css';
 
 const ShopPage = () => {
@@ -48,6 +49,59 @@ const ShopPage = () => {
           of innovation and excellence. Today, the legacy of Air Jordan continues, inspiring new generations with its iconic style 
           and unparalleled performance.
         </p>
+        <p className="history-content">
+          The evolution of Air Jordans is more than just shoes. It's a lifestyle, a statement of success, and a testament to the 
+          powerful intersection of sport, fashion, and culture.
+        </p>
+      </div>
+
+      {/* Product Showcase Section */}
+      <div className="shop-product-showcase">
+        <h2 className="product-title">Featured Air Jordan Sneakers</h2>
+        <div className="product-items">
+          <div className="product-item">
+            <img src={jordanShoes} alt="Air Jordan 1" className="product-image" />
+            <h3 className="product-name">Air Jordan 1</h3>
+            <p className="product-description">The classic that started it all. Iconic design and unmatched comfort.</p>
+            <p className="product-price">$169.99</p>
+            <button className="product-cta">Buy Now</button>
+          </div>
+          <div className="product-item">
+            <img src={jordanShoes} alt="Air Jordan 11" className="product-image" />
+            <h3 className="product-name">Air Jordan 11</h3>
+            <p className="product-description">Revolutionary in both style and technology. A true game-changer.</p>
+            <p className="product-price">$220.00</p>
+            <button className="product-cta">Buy Now</button>
+          </div>
+          <div className="product-item">
+            <img src={jordanShoes} alt="Air Jordan 4" className="product-image" />
+            <h3 className="product-name">Air Jordan 4</h3>
+            <p className="product-description">Known for its durability and cutting-edge tech, a staple of the collection.</p>
+            <p className="product-price">$180.00</p>
+            <button className="product-cta">Buy Now</button>
+          </div>
+        </div>
+      </div>
+
+      {/* Lifestyle & Design Section */}
+      <div className="shop-lifestyle-section">
+        <h2 className="lifestyle-title">The Air Jordan Lifestyle</h2>
+        <p className="lifestyle-content">
+          Wearing Air Jordans is more than just sporting a pair of shoes—it's a lifestyle. With each new release, the 
+          Jordan brand continues to push boundaries, blending style and performance. Whether on the court, in the streets, or 
+          at the office, Air Jordans offer unmatched comfort and design that speaks to all walks of life.
+        </p>
+        <p className="lifestyle-content">
+          From the iconic Jumpman logo to the revolutionary Air cushioning technology, every detail is crafted to elevate 
+          your experience. Discover why Air Jordans continue to be at the forefront of sportswear and fashion.
+        </p>
+      </div>
+
+      {/* CTA Section */}
+      <div className="shop-cta">
+        <h2>Ready to Step into History?</h2>
+        <p>Explore the latest releases and find your perfect pair of Air Jordans.</p>
+        <button className="cta-button">Shop Now</button>
       </div>
     </div>
   );
