@@ -38,15 +38,56 @@ const OrderPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Order submitted', customerData, paymentMethod);
-  };
+    
+    const shippingAddress = `${customerData.address}, ${customerData.city}`;
+    const phone = `${customerData.phone}`;
 
-  // Check if all required fields are filled for step 1
+    const emailContent = {
+      to: customerData.email,
+      subject: "Thank you for your purchase from Nike!",
+      text: `
+        Dear Customer,
+
+We appreciate your choice to shop with us. Your order is on its way, and we’re excited to have been a part of your journey.
+
+Here are the details of your order:
+Order Details:
+
+Shipping Address: ${shippingAddress}
+Payment Method: ${paymentMethod}
+Phone Number: ${phone}
+
+Should you have any questions or need assistance, don’t hesitate to reach out to us. We look forward to seeing you again soon! Stay active, stay strong, and keep moving forward.
+
+Nike Team
+      `,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8081/api/email/sendemail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailContent),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      const data = await response.json();
+      console.log('Email sent successfully:', data);
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+};
+
+
   const isStep1Valid = Object.values(customerData).every((value) => value.trim() !== '');
 
-  // Check if a payment method is selected for step 2
   const isStep2Valid = paymentMethod !== '';
 
   return (
@@ -127,7 +168,7 @@ const OrderPage = () => {
               type="button"
               onClick={handleNextStep}
               className="save-continue"
-              disabled={!isStep1Valid} // Disable if fields are empty
+              disabled={!isStep1Valid} 
             >
               Save & Continue
             </button>
@@ -167,7 +208,7 @@ const OrderPage = () => {
               type="button"
               onClick={handleNextStep}
               className="save-continue"
-              disabled={!isStep2Valid} // Disable if no payment method is selected
+              disabled={!isStep2Valid} 
             >
               Save & Continue
             </button>
