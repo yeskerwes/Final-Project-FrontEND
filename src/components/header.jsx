@@ -35,8 +35,8 @@ const Header = () => {
         <div className="header-top">
           <div className="header-top-name">kz</div>
           <div className="header-top-right">
-           {/* <RegistrationForm />  */}
-            <MyCabinet />
+           <RegistrationForm /> 
+            {/* <MyCabinet /> */}
           </div>
         </div>
 

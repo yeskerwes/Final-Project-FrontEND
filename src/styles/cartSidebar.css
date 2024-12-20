@@ -66,18 +66,18 @@
     line-height: 1.5;
   }
   
-  .go-to-catalog-btn {
-    background-color: #000;
+  .cartSidebar-btn {
+    background-color: #999;
     color: #fff;
     border: none;
     padding: 10px 15px;
     font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
-    text-transform: uppercase;
+    text-decoration: none;
   }
   
-  .go-to-catalog-btn:hover {
+  .cartSidebar-btn:hover {
     background-color: #444;
   }
   
@@ -130,3 +130,12 @@
     background-color: #cc0000;
   }
   
+  .cart-sidebar-footer{
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+  }
+
+  .cart-total{
+    margin-bottom: 30px;
+  }

@@ -6,7 +6,7 @@ import { ReactComponent as EyeClosed } from '../images/eye_close.svg';
 import { ReactComponent as Profile } from '../images/icon-profile.svg';
 import loadingGif from '../images/preloader.gif';
 
-function RegistrationForm() {
+function RegistrationForm({ onSignUpSuccess }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -15,11 +15,11 @@ function RegistrationForm() {
   const navigate = useNavigate();
 
   const openModal = () => {
-    setIsLoading(true); 
+    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      setIsModalOpen(true); 
-    }, 1000); 
+      setIsModalOpen(true);
+    }, 1000);
   };
 
   const closeModal = () => setIsModalOpen(false);
@@ -48,13 +48,18 @@ function RegistrationForm() {
     setErrors(newErrors);
 
     if (!hasError) {
-      console.log('Form submitted:', formData);
+      onSignUpSuccess();  // Вызов функции из родительского компонента
+      navigate('/');  // Перенаправление на главную страницу
     }
   };
 
   const handleSignUp = () => {
-    closeModal();
-    navigate('/registration'); 
+    // Эта функция вызывается при клике на кнопку "Sign Up"
+    if (formData.email && formData.password) {
+      handleSubmit();  // Вызываем submit вручную
+    } else {
+      alert('Please fill in both fields.');
+    }
   };
 
   return (
@@ -65,7 +70,7 @@ function RegistrationForm() {
             <Profile className="icon-profile" /> Sign in
           </div>
         )}
-        {isLoading && ( 
+        {isLoading && (
           <div className="loading-overlay">
             <img src={loadingGif} alt="Loading..." className="loading-gif" />
           </div>
@@ -108,9 +113,9 @@ function RegistrationForm() {
                     />
                     <span
                       className="toggle-password"
-                      onMouseDown={(e) => e.preventDefault()} 
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={(e) => {
-                        e.stopPropagation(); 
+                        e.stopPropagation();
                         setShowPassword(!showPassword);
                       }}
                     >
@@ -124,7 +129,7 @@ function RegistrationForm() {
                 </div>
                 <div className="submit-btns">
                   <button type="submit" className="submit-sign">Sign In</button>
-                  <button type="button" className="submit-registration" onClick={handleSignUp}>Sign Up</button>
+                  <button type="button" onClick={handleSignUp} className="submit-registration">Sign Up</button>
                 </div>
               </form>
             </div>
