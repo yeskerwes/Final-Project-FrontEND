@@ -1,5 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  toggleCartModal,
+  toggleFavoritesModal,
+} from "./redux/uiSlice";
+import { addToCart, removeFromCart } from "./redux/cartSlice";
+import { toggleFavorite } from "./redux/favoritesSlice";
 import "./styles/App.css";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -22,43 +29,18 @@ import Toolbar from "./components/toolbar";
 import FavoritesModal from "./components/favoritesModal";
 import CartSidebar from "./components/CartSidebar";
 import CartPage from "./components/cartPage";
-import ProfilePage from './components/profilePage';
-import OrderPage from './components/orderPage';
-import ContactsPage from './components/ContactsPage';
+import ProfilePage from "./components/profilePage";
+import OrderPage from "./components/orderPage";
+import ContactsPage from "./components/ContactsPage";
 import PersonalDetailsPage from "./components/PersonalDetailsPage";
 import ChangePasswordPage from "./components/ChangePasswordPage";
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-  const [favoriteItems, setFavoriteItems] = useState([]);
-  const [isCartModalOpen, setIsCartModalOpen] = useState(false);
-  const [isFavoritesModalOpen, setIsFavoritesModalOpen] = useState(false);
-
-  const addToCart = (item) => {
-    setCartItems((prevItems) => [...prevItems, item]);
-  };
-
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  const toggleFavorite = (item) => {
-    setFavoriteItems((prevItems) => {
-      if (prevItems.some((favorite) => favorite.id === item.id)) {
-        return prevItems.filter((favorite) => favorite.id !== item.id);
-      } else {
-        return [...prevItems, item];
-      }
-    });
-  };
-
-  const toggleCartModal = () => {
-    setIsCartModalOpen((prev) => !prev);
-  };
-
-  const toggleFavoritesModal = () => {
-    setIsFavoritesModalOpen((prev) => !prev);
-  };
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
+  const favoriteItems = useSelector((state) => state.favorites.items);
+  const isCartModalOpen = useSelector((state) => state.ui.isCartModalOpen);
+  const isFavoritesModalOpen = useSelector((state) => state.ui.isFavoritesModalOpen);
 
   return (
     <Router>
@@ -82,9 +64,9 @@ function App() {
             path="/kids"
             element={
               <KidsPage
-                addToCart={addToCart}
+                addToCart={(item) => dispatch(addToCart(item))}
                 favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
+                toggleFavorite={(item) => dispatch(toggleFavorite(item))}
               />
             }
           />
@@ -92,9 +74,9 @@ function App() {
             path="/men"
             element={
               <MenPage
-                addToCart={addToCart}
+                addToCart={(item) => dispatch(addToCart(item))}
                 favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
+                toggleFavorite={(item) => dispatch(toggleFavorite(item))}
               />
             }
           />
@@ -102,9 +84,9 @@ function App() {
             path="/women"
             element={
               <WomenPage
-                addToCart={addToCart}
+                addToCart={(item) => dispatch(addToCart(item))}
                 favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
+                toggleFavorite={(item) => dispatch(toggleFavorite(item))}
               />
             }
           />
@@ -113,7 +95,7 @@ function App() {
             element={
               <CartPage
                 cartItems={cartItems}
-                removeFromCart={removeFromCart}
+                removeFromCart={(id) => dispatch(removeFromCart(id))}
               />
             }
           />
@@ -123,28 +105,28 @@ function App() {
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/orderPage" element={<OrderPage />} />
-          <Route path="/contacts" element={<ContactsPage />} />;
-          <Route path="/person-details" element={<PersonalDetailsPage />} />;
-          <Route path="/change-password" element={<ChangePasswordPage />} />;
+          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/person-details" element={<PersonalDetailsPage />} />
+          <Route path="/change-password" element={<ChangePasswordPage />} />
         </Routes>
         <Toolbar
           cartItems={cartItems}
           favoriteItems={favoriteItems}
-          onCartClick={toggleCartModal}
-          onFavoritesClick={toggleFavoritesModal}
+          onCartClick={() => dispatch(toggleCartModal())}
+          onFavoritesClick={() => dispatch(toggleFavoritesModal())}
         />
         <Footer />
         <AnchorUp />
         <ContactUsButton />
         <CartSidebar
           isOpen={isCartModalOpen}
-          closeSidebar={toggleCartModal}
+          closeSidebar={() => dispatch(toggleCartModal())}
           cartItems={cartItems}
-          removeFromCart={removeFromCart}
+          removeFromCart={(id) => dispatch(removeFromCart(id))}
         />
         <FavoritesModal
           isOpen={isFavoritesModalOpen}
-          closeModal={toggleFavoritesModal}
+          closeModal={() => dispatch(toggleFavoritesModal())}
           favoriteItems={favoriteItems}
         />
       </div>
