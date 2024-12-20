@@ -4,6 +4,7 @@ import '../styles/registration.css';
 import { ReactComponent as EyeOpen } from '../images/eye_open.svg';
 import { ReactComponent as EyeClosed } from '../images/eye_close.svg';
 import ConsentToggle from "./ConsentToggle";
+import { UserContext } from './UserContext';
 
 function Registration() {
   const [formData, setFormData] = useState({
@@ -20,7 +21,8 @@ function Registration() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [generatedCode, setGeneratedCode] = useState(null);
-  const [isConsentGiven] = useState(false);
+  const [isConsentGiven, setConsentGiven] = useState(false);
+  
 
   const navigate = useNavigate();
 
@@ -66,68 +68,62 @@ function Registration() {
       setErrors((prevErrors) => ({ ...prevErrors, code: 'Please enter the code.' }));
       return false;
     }
-
+  
     try {
       const response = await fetch('http://localhost:8081/api/email/checkCode', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          userCode: formData.code,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email, userCode: formData.code }),
       });
-
-      const isCorrect = await response.json();
-      if (!isCorrect) {
-        setErrors((prevErrors) => ({ ...prevErrors, code: 'Incorrect code. Please try again.' }));
+  
+      if (response.ok) {
+        return true;
+      } else {
+        setErrors((prevErrors) => ({ ...prevErrors, code: 'Invalid verification code.' }));
         return false;
       }
     } catch (error) {
       alert(`Error: ${error.message}`);
       return false;
     }
-
-    return true;
   };
-
+  
   const validateForm = () => {
     const newErrors = {};
-
+  
     if (!formData.firstName.trim()) newErrors.firstName = 'Please enter your first name.';
     if (!formData.lastName.trim()) newErrors.lastName = 'Please enter your last name.';
-    if (!formData.email.trim()) newErrors.email = 'Please enter your email.';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!formData.email.trim()) {
+      newErrors.email = 'Please enter your email.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address.';
     }
-    if (!formData.phoneNumber.trim()) newErrors.phoneNumber = 'Please enter your phone number.';
-    else if (!/^\+?\d{10,15}$/.test(formData.phoneNumber)) {
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Please enter your phone number.';
+    } else if (!/^\+?\d{10,15}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = 'Please enter a valid phone number.';
     }
     if (!formData.password.trim()) newErrors.password = 'Please enter a password.';
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = 'Passwords do not match.';
     }
-    if (!validateCode()) {
-      newErrors.code = 'Invalid or missing verification code.';
-    }
     if (!isConsentGiven) {
       newErrors.consent = 'You must give your consent to proceed.';
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-
+  };  
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (await validateForm()) {
+  
+    if (validateForm() && (await validateCode())) {
       console.log('Form submitted:', formData);
       alert('Registration successful!');
       navigate('/');
     }
   };
+  
 
   return (
     <div className="App">

@@ -22,6 +22,7 @@ import Toolbar from "./components/toolbar";
 import FavoritesModal from "./components/favoritesModal";
 import CartSidebar from "./components/CartSidebar";
 import CartPage from "./components/cartPage";
+import ProfilePage from './components/profilePage';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -108,6 +109,7 @@ function App() {
           <Route path="/registration" element={<Registration />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/about" element={<AboutUsPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
         <Toolbar
           cartItems={cartItems}
