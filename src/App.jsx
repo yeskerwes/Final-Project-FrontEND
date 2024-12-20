@@ -23,6 +23,7 @@ import FavoritesModal from "./components/favoritesModal";
 import CartSidebar from "./components/CartSidebar";
 import CartPage from "./components/cartPage";
 import ProfilePage from './components/profilePage';
+import OrderPage from './components/orderPage';
 import ContactsPage from './components/ContactsPage';
 import PersonalDetailsPage from "./components/PersonalDetailsPage";
 import ChangePasswordPage from "./components/ChangePasswordPage";
@@ -107,12 +108,21 @@ function App() {
               />
             }
           />
-          <Route path="/cartPage" element={<CartPage />} />
+          <Route
+            path="/cartPage"
+            element={
+              <CartPage
+                cartItems={cartItems}
+                removeFromCart={removeFromCart}
+              />
+            }
+          />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/orderPage" element={<OrderPage />} />
           <Route path="/contacts" element={<ContactsPage />} />;
           <Route path="/person-details" element={<PersonalDetailsPage />} />;
           <Route path="/change-password" element={<ChangePasswordPage />} />;
@@ -129,7 +139,7 @@ function App() {
         <CartSidebar
           isOpen={isCartModalOpen}
           closeSidebar={toggleCartModal}
-          cartItems={cartItems || []}  
+          cartItems={cartItems}
           removeFromCart={removeFromCart}
         />
         <FavoritesModal
