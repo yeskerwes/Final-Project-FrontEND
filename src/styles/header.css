@@ -130,20 +130,14 @@
     margin: 0 5px;
 }
 
-.header-icons {
-    display: flex;
-    gap: 15px;
+.burger-menu {
+    display: none;
 }
   
-.icon {
-    font-size: 20px;
-    color: #999;
+.burger-icon {
+    font-size: 24px;
     cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.icon:hover {
-    color: #000;
+    color: black;
 }
 
 .header-bottom {
@@ -160,4 +154,43 @@
     position: absolute;
     width: 100%;
     color: #25d366;
+}
+
+@media (max-width: 800px) {
+    .header-catalog {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      background-color: white;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+    }
+  
+    .header-catalog.open {
+      display: flex;
+    }
+  
+    .burger-menu {
+      display: block;
+    }
+  }
+
+@media (max-width: 450px){
+    .search-input{
+        width: 100px;
+        height: 20px;
+    }
+
+    .search-input:focus{
+        width: 120px;
+    }
+
+    .header-logo img {
+        width: 60px;
+        height: 20px;
+    }
 }
