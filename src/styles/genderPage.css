@@ -125,12 +125,21 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-    color: #555;
+    color: #999;
     transition: color 0.3s;
 }
 
+.favorite-button {
+    color: #999;
+    transition: color 0.3s;
+}
+  
+.favorite-button.active {
+    color: red;
+}
+  
 .favorite-button:hover, .cart-button:hover {
-    color: #000;
+    color: #333;
 }  
 
 @media (max-width: 1200px) {

@@ -5,14 +5,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
 import logo from "../images/nike-logo.png";
 import RegistrationForm from "./registrationForm";
-import Modal from "./Modal";
 
 const Header = () => {
   const texts = ["Soon . . .", "In Our Store", "New Year's Discounts", "Hurry Up To Order"];
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [modalContent, setModalContent] = useState(null);
-  const [isBurgerOpen, setIsBurgerOpen] = useState(false); // State to handle burger menu
+  const [isBurgerOpen, setIsBurgerOpen] = useState(false); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,14 +23,6 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, [texts.length]);
-
-  const handleIconClick = (content) => {
-    setModalContent(content);
-  };
-
-  const closeModal = () => {
-    setModalContent(null);
-  };
 
   const toggleBurgerMenu = () => {
     setIsBurgerOpen(!isBurgerOpen);
@@ -123,7 +113,6 @@ const Header = () => {
         </div>
       </div>
 
-      {modalContent && <Modal content={modalContent} onClose={closeModal} />}
     </header>
   );
 };
