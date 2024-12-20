@@ -192,6 +192,9 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
                 </div>               
               </div>
             </div>
+            <div className="modalDescription-bottom">
+              pokupai broooo
+            </div>
           </div>
         </div>
 

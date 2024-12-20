@@ -155,7 +155,7 @@
   background: #f9f9f9;
   width: 850px;
   height: 600px;
-  border-radius: 16px;
+  border-radius: 5px;
   overflow: hidden;
   position: relative;
   text-align: left;
@@ -196,6 +196,7 @@
   justify-content: space-between;
   border-top: 1px solid #ddd;
   padding-top: 30px;
+  margin-bottom: 30px;
 }
 
 .modalDescription-image {
@@ -293,7 +294,12 @@
   color: #fff;
 }
 
-  
+.modalDescription-bottom{
+    text-align: center;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding: 30px;
+}
 
 @media (max-width: 1200px) {
     .product-grid {
