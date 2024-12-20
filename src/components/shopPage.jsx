@@ -1,13 +1,12 @@
 import React from 'react';
 import startVideo from '../images/shop-video.mp4';
 import startPicture from '../images/shop-img.png';
-import jordanShoes from '../images/jordan-shoes.png'; // Example image for product showcase
+import jordanShoes from '../images/jordan-shoes.png'; 
 import '../styles/shopPage.css';
 
 const ShopPage = () => {
   return (
     <div className="shop-page">
-      {/* Video Section */}
       <div className="shop-media-section shop-video-section">
         <video
           src={startVideo}
@@ -24,7 +23,6 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* Image Section */}
       <div className="shop-media-section shop-image-section">
         <img src={startPicture} alt="Air Jordan Legacy" className="shop-media shop-image" />
         <div className="shop-media-overlay">
@@ -35,7 +33,6 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* History Section */}
       <div className="shop-history-section">
         <h2 className="history-title">The History of Air Jordan</h2>
         <p className="history-content">
@@ -55,7 +52,6 @@ const ShopPage = () => {
         </p>
       </div>
 
-      {/* Product Showcase Section */}
       <div className="shop-product-showcase">
         <h2 className="product-title">Featured Air Jordan Sneakers</h2>
         <div className="product-items">
@@ -83,7 +79,6 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* Lifestyle & Design Section */}
       <div className="shop-lifestyle-section">
         <h2 className="lifestyle-title">The Air Jordan Lifestyle</h2>
         <p className="lifestyle-content">
@@ -97,7 +92,6 @@ const ShopPage = () => {
         </p>
       </div>
 
-      {/* CTA Section */}
       <div className="shop-cta">
         <h2>Ready to Step into History?</h2>
         <p>Explore the latest releases and find your perfect pair of Air Jordans.</p>

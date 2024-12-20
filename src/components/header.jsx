@@ -36,7 +36,7 @@ const Header = () => {
       <div className="header-container">
         <div className="header-top">
           <div className="header-top-name">
-            <img src={kzIcon} alt="" className="country-flags" />     
+            <img src={kzIcon} alt="" className="country-flags" />
             <img src={ukIcon} alt="" className="country-flags" />
           </div>
           <div className="header-top-right">

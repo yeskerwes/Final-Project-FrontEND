@@ -10,7 +10,7 @@ const RecommendedShoes = () => {
     useEffect(() => {
         const fetchSneakers = async () => {
             try {
-                const response = await fetch('http://localhost:8081/api/sneakers?random=true');
+                const response = await fetch('http://localhost:8081/api/sneakers/search?random=true&minPrice=10');
                 if (!response.ok) {
                     throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
                 }

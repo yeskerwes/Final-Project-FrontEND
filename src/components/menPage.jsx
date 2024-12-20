@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaShoppingCart, FaFilter } from "react-icons/fa";
 import "../styles/genderPage.css";
 
 const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
@@ -8,7 +7,9 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [sortOption, setSortOption] = useState("price-asc");
-  const [selectedSneaker, setSelectedSneaker] = useState(null); 
+  const [selectedSneaker, setSelectedSneaker] = useState(null);
+  const [activeFilterIndex, setActiveFilterIndex] = useState(null); 
+  const [showFilters, setShowFilters] = useState(true);
 
   useEffect(() => {
     const fetchSneakers = async () => {
@@ -59,26 +60,63 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
     setSelectedSneaker(null);
   };
 
+  const toggleFilterVisibility = () => {
+    setShowFilters(!showFilters); 
+  };
+
+  const toggleFilter = (index) => {
+    setActiveFilterIndex(activeFilterIndex === index ? null : index); 
+  };
+
   return (
     <div className="gender-page">
-      <div className="filters">
-        <button className="filter-header">Filters</button>
-        <ul>
-          <li className="active">Product Type</li>
-          <li>Mens Footwear Size</li>
-          <li>Gender Neutral Footwear Size</li>
-          <li>Width</li>
-          <li>Mens Clothing Size</li>
-          <li>Accessory Size</li>
-          <li>Accessory Type</li>
-          <li>Color</li>
-          <li>Model</li>
-          <li>Technology</li>
-          <li>Fit</li>
-          <li>Price</li>
-        </ul>
-        <button>Apply Filters</button>
-      </div>
+      <button className="filter-icon-button" onClick={toggleFilterVisibility}>
+        <FaFilter />
+      </button>
+      {showFilters && (
+        <div className="filters">
+          <button className="filter-header">Filters</button>
+          <ul>
+            {[
+              { name: "Product Type", options: ["Sneakers", "Boots", "Sandals"] },
+              { name: "Mens Footwear Size", options: ["7", "8", "9", "10", "11", "12"] },
+              { name: "Gender Neutral Footwear Size", options: ["5", "6", "7", "8", "9"] },
+              { name: "Width", options: ["Narrow", "Medium", "Wide"] },
+              { name: "Mens Clothing Size", options: ["S", "M", "L", "XL"] },
+              { name: "Accessory Size", options: ["Small", "Medium", "Large"] },
+              { name: "Accessory Type", options: ["Bags", "Hats", "Belts"] },
+              { name: "Color", options: ["Black", "White", "Red", "Blue", "Green"] },
+              { name: "Model", options: ["Model A", "Model B", "Model C"] },
+              { name: "Technology", options: ["Air Cushion", "Memory Foam", "Waterproof"] },
+              { name: "Fit", options: ["Regular", "Slim", "Loose"] },
+              { name: "Price", options: ["Under $50", "$50-$100", "$100-$200", "Above $200"] },
+            ].map((filter, index) => (
+              <li
+                key={index}
+                className={activeFilterIndex === index ? "active" : ""}
+                onClick={() => toggleFilter(index)}
+              >
+                {filter.name}
+                {activeFilterIndex === index ? (
+                  <span className="filter-toggle">▲</span>
+                ) : (
+                  <span className="filter-toggle">▼</span>
+                )}
+                {activeFilterIndex === index && (
+                  <div className="filter-options">
+                    <ul>
+                      {filter.options.map((option, i) => (
+                        <li key={i}>{option}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+          <button>Apply Filters</button>
+        </div>
+      )}
       <div className="products">
         <div className="sort-dropdown">
           <label htmlFor="sort">Sort:</label>
@@ -115,7 +153,6 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
                     className={`favorite-button ${
                       isFavorite(sneaker.id) ? "active" : ""
                     }`}
-
                     onClick={() => toggleFavorite(sneaker)}
                   >
                     <FaHeart />
@@ -148,27 +185,15 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
                 <p>
                   <strong>Price:</strong> {selectedSneaker.currentPrice.toFixed(2)} $.
                 </p>
-                
+
                 <div className="modalDescription-sizes">
                   <strong>Size:</strong>
-                  <div className="modalDescription-size">
-                    38
-                  </div>
-                  <div className="modalDescription-size">
-                    39
-                  </div>
-                  <div className="modalDescription-size">
-                    40
-                  </div>
-                  <div className="modalDescription-size">
-                    41
-                  </div>
-                  <div className="modalDescription-size">
-                    42
-                  </div>
-                  <div className="modalDescription-size">
-                    43
-                  </div>
+                  <div className="modalDescription-size">38</div>
+                  <div className="modalDescription-size">39</div>
+                  <div className="modalDescription-size">40</div>
+                  <div className="modalDescription-size">41</div>
+                  <div className="modalDescription-size">42</div>
+                  <div className="modalDescription-size">43</div>
                 </div>
 
                 <p>
@@ -177,27 +202,22 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
 
                 <div className="modalDescription-buttons">
                   <button
-                      className={`favorite-button ${
-                        isFavorite(selectedSneaker.id) ? "active" : ""
-                      }`}
-
-                      onClick={() => toggleFavorite(selectedSneaker)}
-                    >
-                      <FaHeart />
+                    className={`favorite-button ${
+                      isFavorite(selectedSneaker.id) ? "active" : ""
+                    }`}
+                    onClick={() => toggleFavorite(selectedSneaker)}
+                  >
+                    <FaHeart />
                   </button>
-                  <button className="add-to-cart-button"
-                    onClick={() => addToCart(selectedSneaker)}>
+                  <button className="add-to-cart-button" onClick={() => addToCart(selectedSneaker)}>
                     Add To Cart
-                  </button> 
-                </div>               
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="modalDescription-bottom">
-              pokupai broooo
-            </div>
+            <div className="modalDescription-bottom">pokupai broooo</div>
           </div>
         </div>
-
       )}
     </div>
   );

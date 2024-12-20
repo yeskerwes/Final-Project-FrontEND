@@ -27,6 +27,43 @@
     margin-bottom: 20px;
 }
 
+.filters-apply-btn {
+    width: 200px;
+    height: 30px;
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+    border-radius: 10px;
+}
+
+.filters-apply-btn:hover{
+    background-color: #777;
+    border-color: #777;
+}
+
+.filter-icon-button {
+    display: none;
+    position: sticky;
+    top: 0px;
+    right: 0px;
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  .filter-icon-button svg {
+    font-size: 20px;
+    color: #333;
+  }
+
 .filters ul {
     list-style: none;
     padding: 0;
@@ -328,5 +365,17 @@
         height: 150px; 
         object-fit: cover; 
     }
+
+    .filter-icon-button {
+        display: flex;
+      }
+    
+      .filters {
+        display: none;
+      }
+    
+      .filters.show {
+        display: block;
+      }
     
 }

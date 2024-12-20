@@ -12,8 +12,27 @@ const OrderPage = () => {
     email: '',
     phone: '',
   });
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('');
+  const [cardDetails, setCardDetails] = useState({
+    cardNumber: '',
+    expirationDate: '',
+    cvv: '',
+  });
 
-  const [paymentMethod, setPaymentMethod] = useState('');
+  const handlePaymentChange = (e) => {
+    setSelectedPaymentMethod(e.target.value);
+  };
+
+  const handleCardDetailsChange = (e) => {
+    setCardDetails({
+      ...cardDetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const isStep2Valid = selectedPaymentMethod === 'creditCard'
+    ? cardDetails.cardNumber && cardDetails.expirationDate && cardDetails.cvv
+    : selectedPaymentMethod === 'paypal';
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -21,10 +40,6 @@ const OrderPage = () => {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  const handlePaymentChange = (e) => {
-    setPaymentMethod(e.target.value);
   };
 
   const handleNextStep = () => {
@@ -57,7 +72,7 @@ const OrderPage = () => {
         Order Details:
 
         Shipping Address: ${shippingAddress}
-        Payment Method: ${paymentMethod}
+        Payment Method: ${selectedPaymentMethod}
         Phone Number: ${phone}
 
         Should you have any questions or need assistance, don’t hesitate to reach out to us. We look forward to seeing you again soon! Stay active, stay strong, and keep moving forward.
@@ -84,12 +99,9 @@ const OrderPage = () => {
     } catch (error) {
       console.error('Error sending email:', error);
     }
-};
-
+  };
 
   const isStep1Valid = Object.values(customerData).every((value) => value.trim() !== '');
-
-  const isStep2Valid = paymentMethod !== '';
 
   return (
     <div className="order-page">
@@ -185,6 +197,7 @@ const OrderPage = () => {
         {step === 2 && (
           <section className="payment-info-container centered-form">
             <h2>Payment</h2>
+
             <div className="form-group">
               <label>
                 <input
@@ -197,6 +210,46 @@ const OrderPage = () => {
                 Credit Card
               </label>
             </div>
+
+            {selectedPaymentMethod === 'creditCard' && (
+              <div className="credit-card-details">
+                <div className="form-group">
+                  <label htmlFor="cardNumber">Card Number</label>
+                  <input
+                    type="text"
+                    id="cardNumber"
+                    name="cardNumber"
+                    placeholder="1234 5678 9876 5432"
+                    onChange={handleCardDetailsChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="expirationDate">Expiration Date</label>
+                  <input
+                    type="month"
+                    id="expirationDate"
+                    name="expirationDate"
+                    onChange={handleCardDetailsChange}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="cvv">CVV</label>
+                  <input
+                    type="text"
+                    id="cvv"
+                    name="cvv"
+                    placeholder="123"
+                    onChange={handleCardDetailsChange}
+                    required
+                  />
+                </div>
+              </div>
+            )}
+
             <div className="form-group">
               <label>
                 <input
@@ -208,17 +261,20 @@ const OrderPage = () => {
                 PayPal
               </label>
             </div>
-            <button type="button" onClick={handlePrevStep} className="back-button">
-              Back
-            </button>
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="continue-button"
-              disabled={!isStep2Valid} 
-            >
-              Save & Continue
-            </button>
+            <div className="paymentMethods-buttons">
+              <button type="button" onClick={handlePrevStep} className="back-button">
+                Back
+              </button>
+              <button
+                type="button"
+                onClick={handleNextStep}
+                className="continue-button"
+                disabled={!isStep2Valid}
+              >
+                Save & Continue
+              </button>              
+            </div>
+
           </section>
         )}
 
@@ -231,7 +287,7 @@ const OrderPage = () => {
             <p><strong>City:</strong> {customerData.city}</p>
             <p><strong>Email:</strong> {customerData.email}</p>
             <p><strong>Phone:</strong> {customerData.phone}</p>
-            <p><strong>Payment Method:</strong> {paymentMethod}</p>
+            <p><strong>Payment Method:</strong> {selectedPaymentMethod}</p>
             <div className="form-actions">
               <button type="button" onClick={handlePrevStep} className="back-button">
                 Back
@@ -242,6 +298,7 @@ const OrderPage = () => {
             </div>
           </section>
         )}
+
         {step === 4 && (
           <section className="ordered-last-content">
             <div className="succesfully-text">
