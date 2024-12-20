@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
 import './styles/App.css';
 import Header from './components/header';
@@ -19,13 +19,8 @@ import SignIn from './components/signIn';
 import Registration from './components/Registration';
 import AboutUsPage from './components/aboutUsPage';
 import Toolbar from './components/toolbar';
-import Modal from "./components/Modal";
-import { CartContext } from "./components/CartContext";
 
 function App() {
-
-  const { isModalOpen, closeModal, cartItems, favoriteItems } = useContext(CartContext);
-
   return (
     <Router>
       <div className="App">
@@ -50,12 +45,6 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} /> 
           <Route path="/about" element={<AboutUsPage />} />
         </Routes>
-        <Modal
-        isOpen={isModalOpen}
-        closeModal={closeModal}
-        cartItems={cartItems}
-        favoriteItems={favoriteItems}
-        />
         <Toolbar />
         <Footer />
         <AnchorUp />
