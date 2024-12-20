@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/orderPage.css';
 
 const OrderPage = () => {
@@ -55,79 +55,85 @@ const OrderPage = () => {
 
       <form onSubmit={handleSubmit}>
         {step === 1 && (
-          <section className="delivery-info-container">
+          <section className="delivery-info-container centered-form">
             <h2>Delivery Information</h2>
-            <div className="input-group">
-              <label htmlFor="firstName">First Name*</label>
+            <div className="form-group">
+              <label htmlFor="firstName" className="form-label">First Name<span>*</span></label>
               <input
                 type="text"
                 id="firstName"
                 name="firstName"
                 value={customerData.firstName}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="input-group">
-              <label htmlFor="lastName">Last Name*</label>
+            <div className="form-group">
+              <label htmlFor="lastName" className="form-label">Last Name<span>*</span></label>
               <input
                 type="text"
                 id="lastName"
                 name="lastName"
                 value={customerData.lastName}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="input-group">
-              <label htmlFor="address">Address Line 1*</label>
+            <div className="form-group">
+              <label htmlFor="address" className="form-label">Address Line 1<span>*</span></label>
               <input
                 type="text"
                 id="address"
                 name="address"
                 value={customerData.address}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="input-group">
-              <label htmlFor="city">Town/City*</label>
+            <div className="form-group">
+              <label htmlFor="city" className="form-label">Town/City<span>*</span></label>
               <input
                 type="text"
                 id="city"
                 name="city"
                 value={customerData.city}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="input-group">
-              <label htmlFor="email">Email*</label>
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">Email<span>*</span></label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={customerData.email}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
-            <div className="input-group">
-              <label htmlFor="phone">Phone Number*</label>
+            <div className="form-group">
+              <label htmlFor="phone" className="form-label">Phone Number<span>*</span></label>
               <input
                 type="text"
                 id="phone"
                 name="phone"
                 value={customerData.phone}
                 onChange={handleInputChange}
+                className="form-input"
                 required
               />
             </div>
             <button
               type="button"
               onClick={handleNextStep}
-              className="save-continue"
-              disabled={!isStep1Valid} // Disable if fields are empty
+              className="submit-button"
+              disabled={!isStep1Valid}
             >
               Save & Continue
             </button>
@@ -135,9 +141,9 @@ const OrderPage = () => {
         )}
 
         {step === 2 && (
-          <section className="payment-info-container">
+          <section className="payment-info-container centered-form">
             <h2>Payment</h2>
-            <div className="input-group">
+            <div className="form-group">
               <label>
                 <input
                   type="radio"
@@ -149,7 +155,7 @@ const OrderPage = () => {
                 Credit Card
               </label>
             </div>
-            <div className="input-group">
+            <div className="form-group">
               <label>
                 <input
                   type="radio"
@@ -160,22 +166,24 @@ const OrderPage = () => {
                 PayPal
               </label>
             </div>
-            <button type="button" onClick={handlePrevStep} className="back-button">
-              Back
-            </button>
-            <button
-              type="button"
-              onClick={handleNextStep}
-              className="save-continue"
-              disabled={!isStep2Valid} // Disable if no payment method is selected
-            >
-              Save & Continue
-            </button>
+            <div className="form-actions">
+              <button type="button" onClick={handlePrevStep} className="back-button">
+                Back
+              </button>
+              <button
+                type="button"
+                onClick={handleNextStep}
+                className="submit-button"
+                disabled={!isStep2Valid}
+              >
+                Save & Continue
+              </button>
+            </div>
           </section>
         )}
 
         {step === 3 && (
-          <section className="order-review-container">
+          <section className="order-review-container centered-form">
             <h2>Order Review</h2>
             <p><strong>First Name:</strong> {customerData.firstName}</p>
             <p><strong>Last Name:</strong> {customerData.lastName}</p>
@@ -184,12 +192,14 @@ const OrderPage = () => {
             <p><strong>Email:</strong> {customerData.email}</p>
             <p><strong>Phone:</strong> {customerData.phone}</p>
             <p><strong>Payment Method:</strong> {paymentMethod}</p>
-            <button type="button" onClick={handlePrevStep} className="back-button">
-              Back
-            </button>
-            <button type="submit" className="submit-order">
-              Submit Order
-            </button>
+            <div className="form-actions">
+              <button type="button" onClick={handlePrevStep} className="back-button">
+                Back
+              </button>
+              <button type="submit" className="submit-button">
+                Submit Order
+              </button>
+            </div>
           </section>
         )}
       </form>
