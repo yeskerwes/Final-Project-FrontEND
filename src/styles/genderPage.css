@@ -122,8 +122,13 @@
 
 .favorite-button, .cart-button {
     background: none;
-    border: none;
+    border: 1px solid #999;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
     font-size: 20px;
+    text-align: center;
+    align-items: center;
     cursor: pointer;
     color: #999;
     transition: color 0.3s;
@@ -135,12 +140,166 @@
 }
   
 .favorite-button.active {
-    color: red  ;
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
 }
   
 .favorite-button:hover, .cart-button:hover {
-    color: #333;
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
 }  
+  
+.modalDescription {
+  background: #f9f9f9;
+  width: 850px;
+  height: 600px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  padding: 25px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #e74c3c;
+}
+
+.modalDescription-top {
+  margin-bottom: 20px;
+}
+
+.modalDescription-top h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.modalDescription-main {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.modalDescription-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sneaker-description {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modalDescription-sizes {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.modalDescription-size {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modalDescription-size:hover {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+  color: #fff;
+}
+
+.modalDescription h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #34495e;
+}
+
+.modalDescription p {
+  margin: 5px 0;
+  color: #7f8c8d;
+  font-size: 16px;
+}
+
+.modalDescription-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.add-to-cart-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.add-to-cart-button:hover {
+  background-color: #666;
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #999;
+  border: 1px solid #999;
+  transition: color 0.3s ease;
+}
+
+.favorite-button.active {
+  color: #fff;
+}
+
+.favorite-button:hover {
+  color: #fff;
+}
+
+.modalDescription-bottom{
+    text-align: center;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding: 30px;
+}
 
 @media (max-width: 1200px) {
     .product-grid {

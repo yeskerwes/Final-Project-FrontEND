@@ -3,6 +3,8 @@ import { NavLink } from "react-router-dom";
 import "../styles/header.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaSearch } from "react-icons/fa";
+import kzIcon from '../images/kz-icon.svg';
+import ukIcon from '../images/uk-icon.svg';
 import logo from "../images/nike-logo.png";
 import RegistrationForm from "./registrationForm";
 import MyCabinet from "./myCabinet";
@@ -33,7 +35,10 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="header-top">
-          <div className="header-top-name">kz</div>
+          <div className="header-top-name">
+            <img src={kzIcon} alt="" className="country-flags" />     
+            <img src={ukIcon} alt="" className="country-flags" />
+          </div>
           <div className="header-top-right">
            <RegistrationForm /> 
             {/* <MyCabinet /> */}
