@@ -1,0 +1,355 @@
+.about-page {
+    padding: 50px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    color: #222;
+}
+
+.board-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.board-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.board-tab {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.board-tab:hover {
+    color: #f10101;
+}
+
+.board-tab.active {
+    color: #f10101;
+    text-decoration: underline;
+}
+
+.board-content {
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+
+.board-details h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.board-details p {
+    font-size: 16px;
+    color: #555;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.welcome-section h1 {
+    font-size: 40px;
+    color: #111;
+    font-weight: bold;
+}
+
+.welcome-section p {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #444;
+}
+
+.image-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.full-screen-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.about-page > section:not(.image-section) {
+    position: relative;
+    z-index: 2;
+}
+
+.image-text-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.image-text-section img {
+    width: 45%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.text-content h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #222;
+}
+
+.text-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.scroll-section {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.scroll-section h2 {
+    text-align: center;
+    font-size: 28px; /* Adjust size as needed */
+    color: #f10101; /* Highlight color */
+    font-weight: bold;
+    margin-bottom: 20px; /* Spacing between the title and the cards */
+}
+
+.scroll-container {
+    display: flex;
+    gap: 25px;
+    padding: 10px;
+    overflow-x: auto; /* Enable horizontal scrolling for athlete cards */
+    scrollbar-width: none; /* Hide scrollbar for better aesthetics */
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for WebKit browsers */
+}
+
+.scroll-item {
+    display: inline-block;
+    text-align: center;
+    width: 280px; /* Adjusted width to make boxes bigger */
+    padding: 20px; /* Adjust padding to give text space */
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    box-sizing: border-box; /* Ensure proper box sizing */
+    overflow: hidden;
+    word-wrap: break-word; /* Prevent text overflow */
+}
+
+.scroll-item:hover {
+    transform: scale(1.05); /* Slight scale effect on hover */
+}
+
+.scroll-item img {
+    width: 100%;
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Text inside the scroll item */
+.scroll-item h3 {
+    font-size: 20px; 
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222; 
+    text-align: center; 
+}
+
+.scroll-item p span{
+    font-size: 16px; /* Adjusted font size for text */
+    line-height: 1.5; /* Ensure readability */
+    color: #555; /* Softer text color */
+    text-align: center; /* Center align the description */
+    font-style: italic;
+}
+
+.mission-section {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.mission-section h2 {
+    font-size: 32px;
+    color: #f10101;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mission-section p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Board Content */
+.board-content {
+    margin-top: 30px;
+}
+
+.board-details h3 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* Board Members Section */
+.board-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Individual Member */
+.member {
+    text-align: center;
+    
+}
+
+/* Member Photo */
+.member-photo {
+    width: 350px;
+    height: 500px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Member Name */
+.member-name {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Hover Effect */
+.member:hover .member-photo {
+    transform: scale(1.01); 
+    transition: transform 0.3s ease;
+}
+
+.member:hover .member-name {
+    color: #f10101;
+}
+
+.info-about-text{
+    font-size: 50px;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.info-about-text:hover{
+    color: #f10101;
+}
+
+.info-about-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; /* Adjust spacing between the blocks */
+    text-align: left; /* Center text under numbers */
+}
+
+.info-about-sales,
+.info-about-ebit,
+.info-about-employee,
+.info-about-year {
+    display: flex;
+    flex-direction: column; /* Align number and text in a column */
+    align-items: left; /* Center both number and text */
+}
+
+.info-about-sales h1,
+.info-about-ebit h1,
+.info-about-employee h1,
+.info-about-year h1 {
+    font-size: 85px;
+    font-weight: 700;
+    margin: 0; /* Remove margin */
+}
+
+.info-about-sales p,
+.info-about-ebit p,
+.info-about-employee p,
+.info-about-year p {
+    font-size: 30px; /* Adjust font size for description text */
+    font-weight: 550;
+    margin-top: 10px; /* Space between the number and the text */
+    color: #555;
+}
+
+.nike-headquarters {
+    width: 100%;
+    height: 650px; /* Adjust as needed */
+    background-image: url('../images/image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.nike-headquarters-text {
+    text-align: left;
+    color: white;
+    padding-left: 100px;
+}
+
+.nike-headquarters p {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.nike-headquarters h1 {
+    text-align: left;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 0; /* Remove default margin to reduce space */
+}
+
+.nike-headquarters h1 + h1 {
+    margin-top: 10px; /* Adjust this value to control the distance between words */
+}
