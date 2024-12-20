@@ -104,7 +104,6 @@ const AboutUsPage = () => {
                   <img src={member2} alt="Member 2" className="member-photo" />
                   <p className="member-name">Mark Parker</p>
                 </div>
-                {/* Add more members as needed */}
               </div>
             </div>
           )}
@@ -119,7 +118,6 @@ const AboutUsPage = () => {
                   <img src={supervisor2} alt="Supervisor 2" className="member-photo" />
                   <p className="member-name">John Donahoe</p>
                 </div>
-                {/* Add more supervisors as needed */}
               </div>
             </div>
           )}
