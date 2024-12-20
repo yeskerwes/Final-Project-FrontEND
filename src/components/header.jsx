@@ -5,6 +5,7 @@ import { FaUser, FaShoppingCart, FaBell, FaStar, FaSearch } from "react-icons/fa
 import logo from "../images/nike-logo.png";
 import RegistrationForm from "./registrationForm";
 import Modal from "./Modal";
+import MyCabinet from "./myCabinet";
 
 const Header = () => {
   const texts = ["Soon . . .", "In Our Store", "New Year's Discounts", "Hurry Up To Order"];
@@ -38,7 +39,8 @@ const Header = () => {
         <div className="header-top">
           <div className="header-top-name">kz</div>
           <div className="header-top-right">
-            <RegistrationForm />
+            {/* <RegistrationForm /> */}
+            <MyCabinet />
           </div>
         </div>
 
