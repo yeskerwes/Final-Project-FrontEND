@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/orderPage.css';
+import { Link } from 'react-router-dom'; 
 
 const OrderPage = () => {
-  const [step, setStep] = useState(1); // State to track the current step
+  const [step, setStep] = useState(1); 
   const [customerData, setCustomerData] = useState({
     firstName: '',
     lastName: '',
@@ -27,7 +28,7 @@ const OrderPage = () => {
   };
 
   const handleNextStep = () => {
-    if (step < 3) {
+    if (step < 4) {
       setStep(step + 1);
     }
   };
@@ -38,15 +39,56 @@ const OrderPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Order submitted', customerData, paymentMethod);
-  };
+    
+    const shippingAddress = `${customerData.address}, ${customerData.city}`;
+    const phone = `${customerData.phone}`;
 
-  // Check if all required fields are filled for step 1
+    const emailContent = {
+      to: customerData.email,
+      subject: "Thank you for your purchase from Nike!",
+      text: `
+        Dear Customer,
+
+        We appreciate your choice to shop with us. Your order is on its way, and we’re excited to have been a part of your journey.
+
+        Here are the details of your order:
+        Order Details:
+
+        Shipping Address: ${shippingAddress}
+        Payment Method: ${paymentMethod}
+        Phone Number: ${phone}
+
+        Should you have any questions or need assistance, don’t hesitate to reach out to us. We look forward to seeing you again soon! Stay active, stay strong, and keep moving forward.
+
+        Nike Team
+      `,
+    };
+
+    try {
+      const response = await fetch('http://localhost:8081/api/email/sendemail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailContent),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send email');
+      }
+
+      const data = await response.json();
+      console.log('Email sent successfully:', data);
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+};
+
+
   const isStep1Valid = Object.values(customerData).every((value) => value.trim() !== '');
 
-  // Check if a payment method is selected for step 2
   const isStep2Valid = paymentMethod !== '';
 
   return (
@@ -166,19 +208,17 @@ const OrderPage = () => {
                 PayPal
               </label>
             </div>
-            <div className="form-actions">
-              <button type="button" onClick={handlePrevStep} className="back-button">
-                Back
-              </button>
-              <button
-                type="button"
-                onClick={handleNextStep}
-                className="submit-button"
-                disabled={!isStep2Valid}
-              >
-                Save & Continue
-              </button>
-            </div>
+            <button type="button" onClick={handlePrevStep} className="back-button">
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleNextStep}
+              className="continue-button"
+              disabled={!isStep2Valid} 
+            >
+              Save & Continue
+            </button>
           </section>
         )}
 
@@ -196,11 +236,40 @@ const OrderPage = () => {
               <button type="button" onClick={handlePrevStep} className="back-button">
                 Back
               </button>
-              <button type="submit" className="submit-button">
+              <button type="submit" className="continue-button" onClick={handleNextStep}>
                 Submit Order
               </button>
             </div>
           </section>
+        )}
+        {step === 4 && (
+          <section className="ordered-last-content">
+            <div className="succesfully-text">
+              <span className="checkmark">✔</span> Your order has been successfully placed!
+            </div>
+            <div className="leave-review">
+              <p>Leave your feedback:</p>
+              <div className="star-rating">
+                <span className="star" data-value="1">★</span>
+                <span className="star" data-value="2">★</span>
+                <span className="star" data-value="3">★</span>
+                <span className="star" data-value="4">★</span>
+                <span className="star" data-value="5">★</span>
+              </div>
+            </div>
+            <div className="thank-you-message">
+              <p>
+                Thank you for choosing our store! We appreciate your trust and hope you are happy with your purchase.
+              </p>
+              <p>
+                You can <Link to="/orders">check your order status</Link> or continue shopping.
+              </p>
+            </div>
+            <button type="button" className="back-button">
+              <Link to="/">Back to Home</Link>
+            </button>
+          </section>
+
         )}
       </form>
     </div>

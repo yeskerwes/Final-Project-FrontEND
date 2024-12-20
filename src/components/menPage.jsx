@@ -8,6 +8,7 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [sortOption, setSortOption] = useState("price-asc");
+  const [selectedSneaker, setSelectedSneaker] = useState(null); 
 
   useEffect(() => {
     const fetchSneakers = async () => {
@@ -50,6 +51,14 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
   const isFavorite = (id) =>
     Array.isArray(favoriteItems) && favoriteItems.some((item) => item.id === id);
 
+  const openModal = (sneaker) => {
+    setSelectedSneaker(sneaker);
+  };
+
+  const closeModal = () => {
+    setSelectedSneaker(null);
+  };
+
   return (
     <div className="gender-page">
       <div className="filters">
@@ -71,14 +80,13 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
         <button>Apply Filters</button>
       </div>
       <div className="products">
-
         <div className="sort-dropdown">
           <label htmlFor="sort">Sort:</label>
           <select
             id="sort"
             className="sort-select"
             value={sortOption}
-            onChange={handleSortChange} 
+            onChange={handleSortChange}
           >
             <option value="price-asc">Price: Low to High</option>
             <option value="price-desc">Price: High to Low</option>
@@ -86,7 +94,6 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
             <option value="title-desc">Title: Z to A</option>
           </select>
         </div>
-
         <div className="product-grid">
           {isLoading && <p>Loading sneakers...</p>}
           {hasError && <p>Error loading sneakers. Please try again later.</p>}
@@ -94,19 +101,21 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
             !hasError &&
             sneakers.map((sneaker) => (
               <div key={sneaker.id} className="product-card">
-                <Link to={`/sneakers/${sneaker.id}`}>
-                  <img
-                    src={sneaker.imageUrl || "/placeholder-image.jpg"} 
-                    alt={sneaker.title}
-                    className="product-image"
-                  />
-                </Link>
+                <img
+                  src={sneaker.imageUrl || "/placeholder-image.jpg"}
+                  alt={sneaker.title}
+                  className="product-image"
+                  onClick={() => openModal(sneaker)}
+                />
                 <h3>{sneaker.title}</h3>
                 <p>{sneaker.category}</p>
                 <p>${sneaker.currentPrice.toFixed(2)}</p>
                 <div className="product-actions">
                   <button
-                    className={`favorite-button ${isFavorite(sneaker.id) ? "active" : ""}`}
+                    className={`favorite-button ${
+                      isFavorite(sneaker.id) ? "active" : ""
+                    }`}
+
                     onClick={() => toggleFavorite(sneaker)}
                   >
                     <FaHeart />
@@ -119,6 +128,74 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
             ))}
         </div>
       </div>
+
+      {selectedSneaker && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modalDescription" onClick={(e) => e.stopPropagation()}>
+            <button className="close-modal" onClick={closeModal}>
+              &times;
+            </button>
+            <div className="modalDescription-top">
+              <h2>{selectedSneaker.title}</h2>
+            </div>
+            <div className="modalDescription-main">
+              <img
+                src={selectedSneaker.imageUrl || "/placeholder-image.jpg"}
+                alt={selectedSneaker.title}
+                className="modalDescription-image"
+              />
+              <div className="sneaker-description">
+                <p>
+                  <strong>Price:</strong> {selectedSneaker.currentPrice.toFixed(2)} $.
+                </p>
+                
+                <div className="modalDescription-sizes">
+                  <strong>Size:</strong>
+                  <div className="modalDescription-size">
+                    38
+                  </div>
+                  <div className="modalDescription-size">
+                    39
+                  </div>
+                  <div className="modalDescription-size">
+                    40
+                  </div>
+                  <div className="modalDescription-size">
+                    41
+                  </div>
+                  <div className="modalDescription-size">
+                    42
+                  </div>
+                  <div className="modalDescription-size">
+                    43
+                  </div>
+                </div>
+
+                <p>
+                  <strong>Description:</strong> {selectedSneaker.description}
+                </p>
+
+                <div className="modalDescription-buttons">
+                  <button
+                      className={`favorite-button ${
+                        isFavorite(selectedSneaker.id) ? "active" : ""
+                      }`}
+
+                      onClick={() => toggleFavorite(selectedSneaker)}
+                    >
+                      <FaHeart />
+                  </button>
+                  <button className="add-to-cart-button"
+                    onClick={() => addToCart(selectedSneaker)}>
+                    Add To Cart
+                  </button> 
+                </div>               
+              </div>
+            </div>
+          </div>
+        </div>
+
+      )}
     </div>
   );
 };
