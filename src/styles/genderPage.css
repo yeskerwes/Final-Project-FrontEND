@@ -135,7 +135,7 @@
 }
   
 .favorite-button.active {
-    color: red;
+    color: red  ;
 }
   
 .favorite-button:hover, .cart-button:hover {
