@@ -1,0 +1,76 @@
+.order-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.save-continue {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+}
+
+.save-continue:hover {
+  background-color: #45a049;
+}
+
+.back-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  margin-right: 10px;
+}
+
+.back-button:hover {
+  background-color: #e53935;
+}
+
+.submit-order {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+}
+
+.submit-order:hover {
+  background-color: #1e88e5;
+}
+
+.delivery-info-container,
+.payment-info-container,
+.order-review-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.order-review-container p {
+  margin: 10px 0;
+}
