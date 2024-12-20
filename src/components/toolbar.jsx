@@ -1,6 +1,6 @@
 import React from "react";
 import { FaShoppingCart, FaHeart, FaBell } from "react-icons/fa";
-import "../styles/toolbar.css";
+import "./styles/toolbar.css";
 
 const Toolbar = ({ cartItems, favoriteItems, onCartClick, onFavoritesClick }) => {
   return (

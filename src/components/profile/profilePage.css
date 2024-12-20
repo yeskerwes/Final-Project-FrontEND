@@ -1,0 +1,133 @@
+.profile-page {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+  }
+  
+  .left-menu {
+    width: 250px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-menu h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  .left-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .left-menu li {
+    margin-bottom: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-align: left;
+  }
+  
+  .left-menu li:hover {
+    color: #dddddd;
+  }
+
+  .card-icon {
+    width: 10px; 
+    height: 10px; 
+    margin-bottom: 50px;
+    margin-right: 50px;
+  }
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-page .reg-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .profile-page .reg-main h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .profile-page .addresses {
+    font-size: 15px;
+  }
+  
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 1px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 150px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .card h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: black;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+}
+  
+  .profile-page .reg-main  {
+    text-align: left;
+  }
+
+  .profile-page .adresses  {
+    text-align: left;
+    justify-content: left;
+  }
+
+  .profile-page .reg-container {
+    margin-bottom: 20px;
+  }
+  
+  .profile-page .reg-main h2  {
+    font-size: 30px;
+  }
+
+
+  @media(max-width: 600px){
+    .left-menu{
+      display: none;
+    }
+  }
