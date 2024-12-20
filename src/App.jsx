@@ -20,7 +20,8 @@ import Registration from "./components/Registration";
 import AboutUsPage from "./components/aboutUsPage";
 import Toolbar from "./components/toolbar";
 import FavoritesModal from "./components/favoritesModal";
-import CartModal from "./components/cartModal";
+import CartSidebar from "./components/CartSidebar";
+import CartPage from "./components/cartPage";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -28,23 +29,24 @@ function App() {
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [isFavoritesModalOpen, setIsFavoritesModalOpen] = useState(false);
 
-  // Add to cart
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
   };
 
-  // Toggle favorite
+  const removeFromCart = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
   const toggleFavorite = (item) => {
     setFavoriteItems((prevItems) => {
       if (prevItems.some((favorite) => favorite.id === item.id)) {
-        return prevItems.filter((favorite) => favorite.id !== item.id); // Remove from favorites
+        return prevItems.filter((favorite) => favorite.id !== item.id);
       } else {
-        return [...prevItems, item]; // Add to favorites
+        return [...prevItems, item];
       }
     });
   };
 
-  // Modal toggling functions
   const toggleCartModal = () => {
     setIsCartModalOpen((prev) => !prev);
   };
@@ -71,7 +73,16 @@ function App() {
           />
           <Route path="/sales" element={<SalesPage />} />
           <Route path="/shop" element={<ShopPage />} />
-          <Route path="/kids" element={<KidsPage />} />
+          <Route
+            path="/kids"
+            element={
+              <KidsPage
+                addToCart={addToCart}
+                favoriteItems={favoriteItems}
+                toggleFavorite={toggleFavorite}
+              />
+            }
+          />
           <Route
             path="/men"
             element={
@@ -92,6 +103,7 @@ function App() {
               />
             }
           />
+          <Route path="/cartPage" element={<CartPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/sign-in" element={<SignIn />} />
@@ -106,10 +118,11 @@ function App() {
         <Footer />
         <AnchorUp />
         <ContactUsButton />
-        <CartModal
+        <CartSidebar
           isOpen={isCartModalOpen}
-          closeModal={toggleCartModal}
-          cartItems={cartItems}
+          closeSidebar={toggleCartModal}
+          cartItems={cartItems || []}  
+          removeFromCart={removeFromCart}
         />
         <FavoritesModal
           isOpen={isFavoritesModalOpen}

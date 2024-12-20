@@ -34,8 +34,9 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
   return (
     <div className="gender-page">
       <div className="filters">
+        <button className="filter-header">Filters</button>
         <ul>
-          <li>Product Type</li>
+          <li className="active">Product Type</li>
           <li>Mens Footwear Size</li>
           <li>Gender Neutral Footwear Size</li>
           <li>Width</li>
@@ -48,6 +49,7 @@ const MenPage = ({ addToCart, favoriteItems, toggleFavorite }) => {
           <li>Fit</li>
           <li>Price</li>
         </ul>
+        <button>Apply Filters</button>
       </div>
       <div className="products">
         <div className="product-grid">
