@@ -40,6 +40,7 @@ function AnchorUp() {
           border: 'none',
           borderRadius: '10px',
           cursor: 'pointer',
+          fontWeight: 'bold',
         }}
       >
         ↑

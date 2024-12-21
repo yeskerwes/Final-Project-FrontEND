@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/contactUsButton.css'; 
+import './styles/contactUsButton.css'; 
 import { FaWhatsapp } from 'react-icons/fa'; 
 
 const ContactUsButton = () => {
