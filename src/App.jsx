@@ -6,7 +6,6 @@ import Footer from "./components/footer";
 import Content from "./components/content";
 import SeasonCollections from "./components/seasonCollections";
 import AboutUs from "./components/aboutUs";
-import ContactUsButton from "./components/contactUsButton";
 import RecommendedShoes from "./components/recommendedShoes";
 import AnchorUp from "./components/anchorUp";
 import SalesPage from "./components/salesPage";
@@ -23,12 +22,16 @@ import FavoritesModal from "./components/favoritesModal";
 import CartSidebar from "./components/CartSidebar";
 import CartPage from "./components/cartPage";
 import ProfilePage from './components/profilePage';
+import AdminPage from "./components/AdminPage";
+import Charts from "./components/Charts";
+import ContactUsButton from "./components/contactUsButton";
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [favoriteItems, setFavoriteItems] = useState([]);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
   const [isFavoritesModalOpen, setIsFavoritesModalOpen] = useState(false);
+  const location = window.location.pathname;
 
   const addToCart = (item) => {
     setCartItems((prevItems) => [...prevItems, item]);
@@ -55,11 +58,11 @@ function App() {
   const toggleFavoritesModal = () => {
     setIsFavoritesModalOpen((prev) => !prev);
   };
-
+  
   return (
     <Router>
       <div className="App">
-        <Header />
+        {location !== "/admin" && location !== "/charts" && <Header />}
         <Routes>
           <Route
             path="/"
@@ -74,42 +77,17 @@ function App() {
           />
           <Route path="/sales" element={<SalesPage />} />
           <Route path="/shop" element={<ShopPage />} />
-          <Route
-            path="/kids"
-            element={
-              <KidsPage
-                addToCart={addToCart}
-                favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
-              />
-            }
-          />
-          <Route
-            path="/men"
-            element={
-              <MenPage
-                addToCart={addToCart}
-                favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
-              />
-            }
-          />
-          <Route
-            path="/women"
-            element={
-              <WomenPage
-                addToCart={addToCart}
-                favoriteItems={favoriteItems}
-                toggleFavorite={toggleFavorite}
-              />
-            }
-          />
+          <Route path="/kids" element={<KidsPage addToCart={addToCart} favoriteItems={favoriteItems} toggleFavorite={toggleFavorite} />} />
+          <Route path="/men" element={<MenPage addToCart={addToCart} favoriteItems={favoriteItems} toggleFavorite={toggleFavorite} />} />
+          <Route path="/women" element={<WomenPage addToCart={addToCart} favoriteItems={favoriteItems} toggleFavorite={toggleFavorite} />} />
+          <Route path="/admin" element={<AdminPage />} />
           <Route path="/cartPage" element={<CartPage />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/about" element={<AboutUsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/charts" element={<Charts />} />
         </Routes>
         <Toolbar
           cartItems={cartItems}
@@ -117,9 +95,9 @@ function App() {
           onCartClick={toggleCartModal}
           onFavoritesClick={toggleFavoritesModal}
         />
-        <Footer />
+        {location !== "/admin" && location !== "/charts" && <Footer />}
+        {location !== "/admin" && location !== "/charts" && <ContactUsButton />}
         <AnchorUp />
-        <ContactUsButton />
         <CartSidebar
           isOpen={isCartModalOpen}
           closeSidebar={toggleCartModal}

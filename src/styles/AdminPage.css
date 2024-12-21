@@ -1,0 +1,125 @@
+body{
+  margin: auto;
+}
+/* Общие стили для страницы */
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  position: relative; 
+}
+
+/* Стил для затемнения экрана */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Серый фон с прозрачностью */
+  z-index: 5;
+  display: none; /* Скрыто по умолчанию */
+}
+
+.overlay.show {
+  display: block; /* Показать затемнение */
+}
+
+/* Боковая панель */
+.sidebar {
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #3d3d3d;
+  color: white;
+  padding-top: 20px;
+  position: fixed;
+  z-index: 10;
+}
+
+
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 15px;
+  text-align: center;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar ul li a:hover {
+  background-color: #3d3d3d;
+}
+
+.content {
+  margin-left: 250px; /* Нет отступа по умолчанию */
+  padding: 20px;
+}
+
+
+/* Хедер */
+.headerr {
+  display: flex;
+  justify-content: flex-end; /* Все элементы справа */
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #494949;
+  color: white;
+  gap: 20px;
+}
+
+.panel{
+  position: absolute;
+  cursor: pointer;
+  left: 25px;
+  padding: 10px 20px;
+
+}
+
+.headerr .icon {
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .sidebar {
+    left: -250px; /* Изначально скрыта при маленьком экране */
+    transition: left 0.3s ease; /* Плавный переход при открытии */
+  }
+
+  .sidebar.open {
+    left: 0; /* Выдвигаем боковую панель */
+  }
+
+  .content {
+    margin-left: 0; /* Нет отступа по умолчанию */
+    padding: 20px;
+  }
+
+
+}
+
+.charts-container {
+  display: flex; /* Используем Flexbox */
+  justify-content: space-between; /* Распределяем графики с промежутком */
+  align-items: center; /* Выравниваем элементы по центру */
+  gap: 20px; /* Промежуток между графиками */
+  margin: 20px 0; /* Отступ сверху и снизу */
+}
+
+.chart-box {
+  flex: 1; /* Каждый график занимает равное место */
+  max-width: 45%; /* Ограничиваем максимальную ширину */
+  background: #f9f9f9; /* Добавляем фон для графиков */
+  padding: 10px; /* Внутренний отступ */
+  border-radius: 10px; /* Закругленные углы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для элементов */
+}
+
